@@ -9,7 +9,8 @@ createApp({
             newMessage: '',
             currentTime: '',
             search: '',
-            filteredContacts: contacts
+            filteredContacts: contacts,
+            lastSeen: ''
         }
     },
     methods: {
@@ -21,6 +22,12 @@ createApp({
                     return { ...message, isOpen: false }
                 })
             };
+
+            this.getLastSeen();
+        },
+        getLastSeen() {
+            const receivedMessages = this.currentContact.messages.filter(message => message.status === 'received');
+            this.lastSeen = receivedMessages[receivedMessages.length - 1].time;
         },
         getDateAndTime() {
             this.currentTime = luxon.DateTime.now();

@@ -36,21 +36,23 @@
                         </div>
                     </div>
                     <div class="search">
-                        <input v-model="search" @input="searchFilter" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model="search" @input="searchFilter" type="text"
+                            placeholder="Cerca o inizia una nuova chat">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="chats_list">
                         <!-- single chat -->
-                        <div v-for="(contact, index) in filteredContacts" @click="openChat(index)" :class="filteredContacts[index].name == currentContact.name ? 'selected_chat contact_chat' : 'contact_chat'">
-                                <div class="contact">
-                                    <img :src="contact.avatar" alt="contact avatar">
-                                    <div class="contact_name">
-                                        <h3>{{contact.name}}</h3>
-                                        <p>{{contact.messages[contact.messages.length - 1].message}}</p>
-                                    </div>
+                        <div v-for="(contact, index) in filteredContacts" @click="openChat(index)"
+                            :class="filteredContacts[index].name == currentContact.name ? 'selected_chat contact_chat' : 'contact_chat'">
+                            <div class="contact">
+                                <img :src="contact.avatar" alt="contact avatar">
+                                <div class="contact_name">
+                                    <h3>{{contact.name}}</h3>
+                                    <p>{{contact.messages[contact.messages.length - 1].message}}</p>
                                 </div>
-                                <div class="hours">{{contact.messages[contact.messages.length - 1].time}}</div>
                             </div>
+                            <div class="hours">{{contact.messages[contact.messages.length - 1].time}}</div>
+                        </div>
                     </div>
                 </div>
                 <!-- chat -->
@@ -61,7 +63,7 @@
                             <img v-show="currentContact.avatar" :src="currentContact.avatar" alt="avatar">
                             <div class="contact_name">
                                 <h3>{{currentContact.name}}</h3>
-                                <p v-show="currentContact.avatar">Ultimo accesso oggi alle 16:26</p>
+                                <p v-show="currentContact.avatar">Ultimo accesso oggi alle {{lastSeen}}</p>
                             </div>
                         </div>
                         <div class="buttons">
