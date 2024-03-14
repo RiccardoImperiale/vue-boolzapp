@@ -4,7 +4,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            constacts: contacts
+            contacts: contacts
         }
     },
     methods: {

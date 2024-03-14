@@ -185,7 +185,8 @@ h3,
 }
 
 .chats_list {
-    height: 100%;
+    height: calc(100% - 200px);
+    background-color: #FAFAFA;
     overflow-x: hidden;
     scrollbar-width: thin;
 }
