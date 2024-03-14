@@ -1,5 +1,4 @@
 import { contacts } from './contacts.js'
-// const { DateTime } = luxon;
 const { createApp } = Vue
 
 createApp({
@@ -25,10 +24,23 @@ createApp({
             const time = this.currentTime.toFormat('HH:mm');
             // create new message
             let newMsg = { date: date, time: time, message: this.newMessage, status: 'sent' }
-            // update main contacts array
+            // update current and main contacts array
             currentChatByName.messages.push(newMsg);
-            // also show in chat by push in current chat array
             this.currentContact.messages.push(newMsg);
+
+            this.automaticAnswer(currentChatByName)
+        },
+        automaticAnswer(currentChatByName) {
+            setTimeout(() => {
+                this.currentTime = luxon.DateTime.now();
+                // format time and date
+                const date = this.currentTime.toFormat('dd/MM/yyyy');
+                const time = this.currentTime.toFormat('HH:mm');
+                let newMsg = { date: date, time: time, message: 'ok', status: 'received' };
+                // update current and main contacts array
+                currentChatByName.messages.push(newMsg);
+                this.currentContact.messages.push(newMsg);
+            }, 1000);
         }
     },
     created() {
