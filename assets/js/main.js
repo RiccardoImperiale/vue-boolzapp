@@ -57,11 +57,15 @@ createApp({
         },
         deleteMessage(index) {
             this.currentContact.messages.splice(index, 1);
+            // search the same contact in the filtered contacts array
+            const currentContactByName = this.filteredContacts.find(contact => contact.name === this.currentContact.name);
+            // get its index
+            const contactIndex = this.filteredContacts.map(contact => contact.name).indexOf(currentContactByName.name);
+            // delete the message from the filtered array also 
+            this.filteredContacts[contactIndex].messages.splice(index, 1);
         }
     },
     created() {
         this.openChat(0);
-        console.log(this.currentContact);
-        console.log(this.filteredContacts[0]);
     }
 }).mount('#app')
