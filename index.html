@@ -77,16 +77,16 @@
                                 <div class="text">
                                     {{message.message}}
                                 </div>
-                                <div class="arrow_down">
+                                <div @click="toggleOptions(index)" class="arrow_down">
                                     <i class="fa-solid fa-angle-down"></i>
-                                    <ul class="message_options">
+                                    <ul v-show="message.isOpen" class="message_options">
                                         <li>Info messaggio</li>
                                         <li>Cancella messaggio</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="message_bottom">
-                                <span class="hours"> {{message.time}}</span>
+                                <span class="hours">{{message.time}}</span>
                             </div>
                         </div>
                     </div>

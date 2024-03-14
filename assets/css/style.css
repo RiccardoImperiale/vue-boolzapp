@@ -71,7 +71,7 @@ h3,
 .container-lg {
     max-width: 1920px;
     /* width: 80%; */
-    width: 900px;
+    width: 991px;
     margin: auto;
 }
 
@@ -270,6 +270,7 @@ h3,
 
 .message_top {
     display: flex;
+    justify-content: space-between;
     gap: .8rem;
 }
 
@@ -300,7 +301,7 @@ h3,
     position: relative;
 
     & .message_options {
-        display: none;
+        /* display: none; */
         background-color: white;
         position: absolute;
         top: 1rem;

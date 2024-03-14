@@ -45,10 +45,12 @@ createApp({
             this.filteredContacts = this.contacts.filter(contact => {
                 return contact.name.toLowerCase().startsWith(this.search.toLowerCase());
             });
+        },
+        toggleOptions(index) {
+            this.currentContact.messages[index].isOpen = !this.currentContact.messages[index].isOpen
         }
     },
     mounted() {
-        console.log(this.search);
         console.log(contacts);
     }
 }).mount('#app')
