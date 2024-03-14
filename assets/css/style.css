@@ -301,16 +301,18 @@ h3,
     cursor: pointer;
 }
 
-/* Hover effect */
+/* Dropdown effect */
 
 .arrow_down {
     position: relative;
 
     & .message_options {
         /* display: none; */
+        border-radius: .5rem;
+        overflow: hidden;
         background-color: white;
         position: absolute;
-        top: 1rem;
+        top: 1.5rem;
         right: 0;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
         z-index: 1;
