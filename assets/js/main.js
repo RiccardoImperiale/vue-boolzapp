@@ -9,8 +9,8 @@ createApp({
         }
     },
     methods: {
-        openChat(index){
-            this.currentContact = {name: this.contacts[index].name, messages: [...this.contacts[index].messages]}
+        openChat(index) {
+            this.currentContact = { name: this.contacts[index].name, avatar: this.contacts[index].avatar, messages: [...this.contacts[index].messages] }
             console.log(this.currentContact);
             // const contact = this.contacts[index];
             // this.currentContact = contact ? { name: contact.name, messages: [...contact.messages] } : null;

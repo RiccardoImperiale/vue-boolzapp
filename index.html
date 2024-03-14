@@ -58,10 +58,10 @@
                     <div class="top">
                         <!-- single chat -->
                         <div class="contact">
-                            <img src="./assets/img/avatar_1.jpg" alt="avatar">
+                            <img v-show="currentContact.avatar" :src="currentContact.avatar" alt="avatar">
                             <div class="contact_name">
-                                <h3>Michele</h3>
-                                <p>Ultimo accesso oggi alle 16:26</p>
+                                <h3>{{currentContact.name}}</h3>
+                                <p v-show="currentContact.avatar">Ultimo accesso oggi alle 16:26</p>
                             </div>
                         </div>
                         <div class="buttons">
