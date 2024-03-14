@@ -7,7 +7,9 @@ createApp({
             contacts: contacts,
             currentContact: [],
             newMessage: '',
-            currentTime: ''
+            currentTime: '',
+            search: '',
+            filteredContacts: contacts
         }
     },
     methods: {
@@ -38,9 +40,15 @@ createApp({
                 currentChatByName.messages.push(newMsg);
                 this.currentContact.messages.push(newMsg);
             }, 1000);
+        },
+        searchFilter() {
+            this.filteredContacts = this.contacts.filter(contact => {
+                return contact.name.toLowerCase().startsWith(this.search.toLowerCase());
+            });
         }
     },
-    created() {
+    mounted() {
+        console.log(this.search);
         console.log(contacts);
     }
 }).mount('#app')

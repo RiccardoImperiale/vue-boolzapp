@@ -36,21 +36,21 @@
                         </div>
                     </div>
                     <div class="search">
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model="search" @input="searchFilter" type="text" placeholder="Cerca o inizia una nuova chat">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="chats_list">
                         <!-- single chat -->
-                        <div v-for="(contact, index) in contacts" @click="openChat(index)" class="contact_chat">
-                            <div class="contact">
-                                <img :src="contact.avatar" alt="contact avatar">
-                                <div class="contact_name">
-                                    <h3>{{contact.name}}</h3>
-                                    <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                        <div v-for="(contact, index) in filteredContacts" @click="openChat(index)" class="contact_chat">
+                                <div class="contact">
+                                    <img :src="contact.avatar" alt="contact avatar">
+                                    <div class="contact_name">
+                                        <h3>{{contact.name}}</h3>
+                                        <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                                    </div>
                                 </div>
+                                <div class="hours">{{contact.messages[contact.messages.length - 1].time}}</div>
                             </div>
-                            <div class="hours">{{contact.messages[contact.messages.length - 1].time}}</div>
-                        </div>
                     </div>
                 </div>
                 <!-- chat -->
@@ -111,7 +111,8 @@
                         <div class="bottom">
                             <template v-if="currentContact.length !== 0">
                                 <i class="fa-regular fa-face-smile"></i>
-                                <input @keyup.enter="send(currentContact.name)" v-model="newMessage" type="text" placeholder="Scrivi un messaggio">
+                                <input @keyup.enter="send(currentContact.name)" v-model="newMessage" type="text"
+                                    placeholder="Scrivi un messaggio">
                                 <i class="fa-solid fa-microphone"></i>
                             </template>
                         </div>
