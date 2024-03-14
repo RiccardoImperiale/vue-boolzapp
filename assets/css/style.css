@@ -259,7 +259,7 @@ h3,
     .message.received {
         border-radius: 0 1rem 1rem 1rem;
         background-color: white;
-        
+
         .message_top::after {
             left: -18px;
             border-left: 18px solid transparent;
@@ -348,7 +348,6 @@ h3,
         cursor: pointer;
     }
 }
-
 
 .emoji_open {
     position: absolute;
@@ -442,8 +441,8 @@ h3,
         padding: 2rem 3rem;
     }
 
-    .chat_list {
-             height: 100%;
+    .chats_list {
+        height: 100%;
     }
 
     .contact_chat {
