@@ -15,7 +15,8 @@
     box-sizing: border-box;
 }
 
-body, #app {
+body,
+#app {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
@@ -213,6 +214,10 @@ h3,
     }
 }
 
+.selected_chat{
+    background-color: #eee4da58;
+}
+
 /* Right styles ---------------------------------------------------> */
 
 .contact {
@@ -246,7 +251,7 @@ h3,
     }
 
     .message.sent {
-        border-radius: 1rem 0 1rem 1rem;
+        border-radius: .5rem 0 .5rem .5rem;
         background-color: var(--boolz-success);
         align-self: flex-end;
 
@@ -258,7 +263,7 @@ h3,
     }
 
     .message.received {
-        border-radius: 0 1rem 1rem 1rem;
+        border-radius: 0 .5rem .5rem .5rem;
         background-color: white;
 
         .message_top::after {
@@ -410,7 +415,7 @@ h3,
 /* Responsive ---------------------------------------------------> */
 
 @media screen and (max-width: 991px) {
-    
+
     .container-md {
         width: 100%;
     }
@@ -464,6 +469,7 @@ h3,
 }
 
 @media screen and (max-width: 540px) {
+
 
     .left {
         display: none;

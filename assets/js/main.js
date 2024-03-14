@@ -21,8 +21,6 @@ createApp({
                     return { ...message, isOpen: false }
                 })
             };
-
-            console.log(this.currentContact);
         },
         getDateAndTime() {
             this.currentTime = luxon.DateTime.now();
@@ -40,7 +38,6 @@ createApp({
             this.currentContact.messages.push(newMsg);
             // trigger automatic answer
             this.automaticAnswer(currentChatByName);
-
         },
         automaticAnswer(currentChatByName) {
             setTimeout(() => {
@@ -62,7 +59,9 @@ createApp({
             this.currentContact.messages.splice(index, 1);
         }
     },
-    mounted() {
-        console.log(contacts);
+    created() {
+        this.openChat(0);
+        console.log(this.currentContact);
+        console.log(this.filteredContacts[0]);
     }
 }).mount('#app')
