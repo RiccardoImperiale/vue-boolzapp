@@ -71,13 +71,47 @@
                         </div>
                     </div>
                     <div class="chat">
-                        <!-- sent messages -->
+                        <div v-for="(message,index) in currentContact.messages"
+                            :class="message.status == 'sent' ? 'message sent' : 'message received'">
+                            <div class="message_top">
+                                <div class="text">
+                                    {{message.message}}
+                                </div>
+                                <div class="arrow_down">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                    <ul class="message_options">
+                                        <li>Info messaggio</li>
+                                        <li>Cancella messaggio</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="message_bottom">
+                                <span class="hours"> {{message.time}}</span>
+                            </div>
+                        </div>
+
+                        <!-- <div class="message received">
+                            <div class="message_top">
+                                <div class="text">
+                                  fwefwefw wfefwefwef
+                                </div>
+                                <div class="arrow_down">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                    <ul class="message_options">
+                                        <li>Info messaggio</li>
+                                        <li>Cancella messaggio</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="message_bottom">
+                                <span class="hours"> 2342</span>
+                            </div>
+                        </div>
+
                         <div class="message sent">
                             <div class="message_top">
                                 <div class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aut, consequatur
-                                    corporis rem dolor earum perferendis, nam quae minima facilis aliquid quia placeat
-                                    perspiciatis odit obcaecati aperiam deleniti voluptate illum.
+                                  fwefwefw wfefwefwef
                                 </div>
                                 <div class="arrow_down">
                                     <i class="fa-solid fa-angle-down"></i>
@@ -88,29 +122,13 @@
                                 </div>
                             </div>
                             <div class="message_bottom">
-                                <span class="hours">16:13</span>
+                                <span class="hours"> 2342</span>
                             </div>
-                        </div>
-                        <!-- received messages -->
-                        <div class="message received">
-                            <div class="message_top">
-                                <div class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aut, consequatur
-                                    corporis rem dolor earum perferendis, nam quae minima facilis aliquid quia placeat
-                                    perspiciatis odit obcaecati aperiam deleniti voluptate illum.
-                                </div>
-                                <div class="arrow_down">
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    <ul class="message_options">
-                                        <li>Info messaggio</li>
-                                        <li>Cancella messaggio</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="message_bottom">
-                                <span class="hours">16:13</span>
-                            </div>
-                        </div>
+                        </div> -->
+
+
+
+
 
                     </div>
                     <div class="bottom_container">

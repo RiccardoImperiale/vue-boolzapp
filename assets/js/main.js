@@ -5,13 +5,15 @@ createApp({
     data() {
         return {
             contacts: contacts,
-            currentChat: null
+            currentContact: [],
         }
     },
     methods: {
         openChat(index){
-            this.currentChat = {name: this.contacts[index].name, messages: [...this.contacts[index].messages]}
-            console.log(this.currentChat.name);
+            this.currentContact = {name: this.contacts[index].name, messages: [...this.contacts[index].messages]}
+            console.log(this.currentContact);
+            // const contact = this.contacts[index];
+            // this.currentContact = contact ? { name: contact.name, messages: [...contact.messages] } : null;
         }
     },
     created() {

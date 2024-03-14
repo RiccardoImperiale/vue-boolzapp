@@ -70,7 +70,8 @@ h3,
 
 .container-lg {
     max-width: 1920px;
-    width: 80%;
+    /* width: 80%; */
+    width: 900px;
     margin: auto;
 }
 
@@ -97,13 +98,13 @@ h3,
 
     & p {
         color: var(--boolz-secondary-dark);
-        padding-right: 2rem;
+        padding-right: 1rem;
     }
 }
 
 .right {
-    flex-grow: 1;
     position: relative;
+    width: 100%;
 
     & p {
         color: var(--boolz-secondary-darker);
@@ -258,7 +259,7 @@ h3,
     .message.received {
         border-radius: 0 1rem 1rem 1rem;
         background-color: white;
-
+        
         .message_top::after {
             left: -18px;
             border-left: 18px solid transparent;
@@ -434,15 +435,20 @@ h3,
     }
 
     .right {
-        flex-grow: 1;
+        width: 100%;
     }
 
     .chat {
         padding: 2rem 3rem;
     }
 
+    .chat_list {
+             height: 100%;
+    }
+
     .contact_chat {
         padding: 0;
+
 
         & .contact {
             margin: auto;
@@ -461,7 +467,12 @@ h3,
         display: none;
     }
 
+    .right {
+        width: 100%;
+    }
+
     .chat {
         padding: 2rem;
+        width: 100%;
     }
 }
