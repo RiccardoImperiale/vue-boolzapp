@@ -89,47 +89,6 @@
                                 <span class="hours"> {{message.time}}</span>
                             </div>
                         </div>
-
-                        <!-- <div class="message received">
-                            <div class="message_top">
-                                <div class="text">
-                                  fwefwefw wfefwefwef
-                                </div>
-                                <div class="arrow_down">
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    <ul class="message_options">
-                                        <li>Info messaggio</li>
-                                        <li>Cancella messaggio</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="message_bottom">
-                                <span class="hours"> 2342</span>
-                            </div>
-                        </div>
-
-                        <div class="message sent">
-                            <div class="message_top">
-                                <div class="text">
-                                  fwefwefw wfefwefwef
-                                </div>
-                                <div class="arrow_down">
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    <ul class="message_options">
-                                        <li>Info messaggio</li>
-                                        <li>Cancella messaggio</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="message_bottom">
-                                <span class="hours"> 2342</span>
-                            </div>
-                        </div> -->
-
-
-
-
-
                     </div>
                     <div class="bottom_container">
                         <div class="emoji_open">
@@ -150,9 +109,11 @@
                             </div>
                         </div>
                         <div class="bottom">
-                            <i class="fa-regular fa-face-smile"></i>
-                            <input type="text" placeholder="Scrivi un messaggio">
-                            <i class="fa-solid fa-microphone"></i>
+                            <template v-if="currentContact.length !== 0">
+                                <i class="fa-regular fa-face-smile"></i>
+                                <input @keyup.enter="send(currentContact.name)" v-model="newMessage" type="text" placeholder="Scrivi un messaggio">
+                                <i class="fa-solid fa-microphone"></i>
+                            </template>
                         </div>
                     </div>
                 </div>
@@ -160,6 +121,7 @@
         </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
     <script type="module" src="./assets/js/main.js"></script>
 </body>
 
