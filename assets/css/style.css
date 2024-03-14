@@ -15,7 +15,7 @@
     box-sizing: border-box;
 }
 
-body {
+body, #app {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
@@ -70,8 +70,8 @@ h3,
 
 .container-lg {
     max-width: 1920px;
-    /* width: 80%; */
-    width: 991px;
+    width: 80%;
+    /* width: 991px; */
     margin: auto;
 }
 
@@ -90,6 +90,7 @@ h3,
     height: 95vh;
     display: flex;
     overflow: hidden;
+    border-radius: 0.5rem
 }
 
 .left {
@@ -409,6 +410,7 @@ h3,
 /* Responsive ---------------------------------------------------> */
 
 @media screen and (max-width: 991px) {
+    
     .container-md {
         width: 100%;
     }
