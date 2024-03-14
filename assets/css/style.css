@@ -206,6 +206,7 @@ h3,
 
     & .hours {
         padding-top: 1.5rem;
+        text-align: end;
     }
 }
 
