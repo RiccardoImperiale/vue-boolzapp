@@ -14,7 +14,7 @@ createApp({
     },
     methods: {
         openChat(index) {
-            this.currentContact = { name: this.contacts[index].name, avatar: this.contacts[index].avatar, messages: [...this.contacts[index].messages] };
+            this.currentContact = { name: this.filteredContacts[index].name, avatar: this.filteredContacts[index].avatar, messages: [...this.filteredContacts[index].messages] };
         },
         getDateAndTime() {
             this.currentTime = luxon.DateTime.now();
