@@ -14,7 +14,15 @@ createApp({
     },
     methods: {
         openChat(index) {
-            this.currentContact = { name: this.filteredContacts[index].name, avatar: this.filteredContacts[index].avatar, messages: [...this.filteredContacts[index].messages] };
+            this.currentContact = {
+                name: this.filteredContacts[index].name,
+                avatar: this.filteredContacts[index].avatar,
+                messages: this.filteredContacts[index].messages.map(message => {
+                    return { ...message, isOpen: false }
+                })
+            };
+
+            console.log(this.currentContact);
         },
         getDateAndTime() {
             this.currentTime = luxon.DateTime.now();
@@ -32,6 +40,7 @@ createApp({
             this.currentContact.messages.push(newMsg);
             // trigger automatic answer
             this.automaticAnswer(currentChatByName);
+
         },
         automaticAnswer(currentChatByName) {
             setTimeout(() => {
@@ -47,7 +56,10 @@ createApp({
             });
         },
         toggleOptions(index) {
-            this.currentContact.messages[index].isOpen = !this.currentContact.messages[index].isOpen
+            this.currentContact.messages[index].isOpen = !this.currentContact.messages[index].isOpen;
+        },
+        deleteMessage(index) {
+            this.currentContact.messages.splice(index, 1);
         }
     },
     mounted() {

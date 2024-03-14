@@ -71,17 +71,17 @@
                         </div>
                     </div>
                     <div class="chat">
-                        <div v-for="(message,index) in currentContact.messages"
+                        <div :key="index" v-for="(message,index) in currentContact.messages"
                             :class="message.status == 'sent' ? 'message sent' : 'message received'">
                             <div class="message_top">
                                 <div class="text">
                                     {{message.message}}
                                 </div>
-                                <div @click="toggleOptions(index)" class="arrow_down">
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    <ul v-show="message.isOpen" class="message_options">
+                                <div class="arrow_down">
+                                    <i @click="toggleOptions(index)" class="fa-solid fa-angle-down"></i>
+                                    <ul v-if="message.isOpen" class="message_options">
                                         <li>Info messaggio</li>
-                                        <li>Cancella messaggio</li>
+                                        <li @click="deleteMessage(index)">Cancella messaggio</li>
                                     </ul>
                                 </div>
                             </div>
