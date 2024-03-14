@@ -1,4 +1,4 @@
-import { contacts } from './contacts.js'
+import { contacts, randomResponses } from './data.js'
 const { createApp } = Vue
 
 createApp({
@@ -10,7 +10,8 @@ createApp({
             currentTime: '',
             search: '',
             filteredContacts: contacts,
-            lastSeen: ''
+            lastSeen: '',
+            randomResponses: randomResponses
         }
     },
     methods: {
@@ -23,9 +24,9 @@ createApp({
                 })
             };
 
-            this.getLastSeen();
+            this.getLastSeenTime();
         },
-        getLastSeen() {
+        getLastSeenTime() {
             const receivedMessages = this.currentContact.messages.filter(message => message.status === 'received');
             this.lastSeen = receivedMessages[receivedMessages.length - 1].time;
         },
@@ -43,13 +44,18 @@ createApp({
             // update current and main contacts array
             currentChatByName.messages.push(newMsg);
             this.currentContact.messages.push(newMsg);
-            // trigger automatic answer
-            this.automaticAnswer(currentChatByName);
+            this.automaticAnswer(currentChatByName); // trigger automatic answer
+            this.newMessage = ''; // clean input
+        },
+        genRandResponse() {
+            const randNum = Math.floor(Math.random() * this.randomResponses.length);
+            return this.randomResponses[randNum];
         },
         automaticAnswer(currentChatByName) {
+            let randomAnswer = this.genRandResponse();
             setTimeout(() => {
                 const dateAndTime = this.getDateAndTime();
-                let newMsg = { date: dateAndTime.date, time: dateAndTime.time, message: 'ok', status: 'received' };
+                let newMsg = { date: dateAndTime.date, time: dateAndTime.time, message: randomAnswer, status: 'received' };
                 currentChatByName.messages.push(newMsg);
                 this.currentContact.messages.push(newMsg);
             }, 1000);
@@ -74,5 +80,6 @@ createApp({
     },
     created() {
         this.openChat(0);
+        console.log(this.randomResponses);
     }
 }).mount('#app')

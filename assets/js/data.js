@@ -1,3 +1,33 @@
+export const randomResponses = [
+    "Certo!",
+    "Assolutamente no.",
+    "Forse...",
+    "Ne dubito.",
+    "Sì, è possibile.",
+    "No, non credo.",
+    "Probabilmente sì.",
+    "Non vedo l'ora!",
+    "Non sono sicuro, chiedimi più tardi.",
+    "Senza dubbio!",
+    "Molto probabilmente no.",
+    "Chi può dirlo?",
+    "Sì, naturalmente.",
+    "No, decisamente no.",
+    "Dipende dalle circostanze.",
+    "Qual è il tuo colore preferito?",
+    "Cosa fai nel tempo libero?",
+    "Qual è il miglior libro che hai letto?",
+    "Cosa ti piace fare durante le vacanze?",
+    "Qual è il tuo piatto preferito?",
+    "Quale film ti ha emozionato di più?",
+    "Hai mai viaggiato all'estero?",
+    "Se potessi incontrare una persona famosa, chi sarebbe?",
+    "Qual è il tuo sogno nel cassetto?",
+    "Cosa ti motiva di più nella vita?",
+    "Hai qualche hobby interessante?",
+    "Cosa ti piacerebbe imparare a fare?",
+];
+
 export let contacts = [
     {
         name: 'Michele',
