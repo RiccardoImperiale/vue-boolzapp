@@ -8,7 +8,7 @@ createApp({
         }
     },
     methods: {
-
+      
     },
     created() {
         console.log(contacts);
