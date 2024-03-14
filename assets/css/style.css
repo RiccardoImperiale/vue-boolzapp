@@ -97,6 +97,7 @@ h3,
 
     & p {
         color: var(--boolz-secondary-dark);
+        padding-right: 2rem;
     }
 }
 

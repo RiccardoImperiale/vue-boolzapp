@@ -41,7 +41,7 @@
                     </div>
                     <div class="chats_list">
                         <!-- single chat -->
-                        <div v-for="(contact, index) in contacts" class="contact_chat">
+                        <div v-for="(contact, index) in contacts" @click="openChat(index)" class="contact_chat">
                             <div class="contact">
                                 <img :src="contact.avatar" alt="contact avatar">
                                 <div class="contact_name">
@@ -111,91 +111,11 @@
                                 <span class="hours">16:13</span>
                             </div>
                         </div>
-                        <!-- sent messages -->
-                        <div class="message sent">
-                            <div class="message_top">
-                                <div class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aut, consequatur
-                                    corporis rem dolor earum perferendis, nam quae minima facilis aliquid quia placeat
-                                    perspiciatis odit obcaecati aperiam deleniti voluptate illum.
-                                </div>
-                                <div class="arrow_down">
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    <ul class="message_options">
-                                        <li>Info messaggio</li>
-                                        <li>Cancella messaggio</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="message_bottom">
-                                <span class="hours">16:13</span>
-                            </div>
-                        </div>
-                        <!-- received messages -->
-                        <div class="message received">
-                            <div class="message_top">
-                                <div class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aut, consequatur
-                                    corporis rem dolor earum perferendis, nam quae minima facilis aliquid quia placeat
-                                    perspiciatis odit obcaecati aperiam deleniti voluptate illum.
-                                </div>
-                                <div class="arrow_down">
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    <ul class="message_options">
-                                        <li>Info messaggio</li>
-                                        <li>Cancella messaggio</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="message_bottom">
-                                <span class="hours">16:13</span>
-                            </div>
-                        </div>
-                        <!-- sent messages -->
-                        <div class="message sent">
-                            <div class="message_top">
-                                <div class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aut, consequatur
-                                    corporis rem dolor earum perferendis, nam quae minima facilis aliquid quia placeat
-                                    perspiciatis odit obcaecati aperiam deleniti voluptate illum.
-                                </div>
-                                <div class="arrow_down">
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    <ul class="message_options">
-                                        <li>Info messaggio</li>
-                                        <li>Cancella messaggio</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="message_bottom">
-                                <span class="hours">16:13</span>
-                            </div>
-                        </div>
-                        <!-- received messages -->
-                        <div class="message received">
-                            <div class="message_top">
-                                <div class="text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aut, consequatur
-                                    corporis rem dolor earum perferendis, nam quae minima facilis aliquid quia placeat
-                                    perspiciatis odit obcaecati aperiam deleniti voluptate illum.
-                                </div>
-                                <div class="arrow_down">
-                                    <i class="fa-solid fa-angle-down"></i>
-                                    <ul class="message_options">
-                                        <li>Info messaggio</li>
-                                        <li>Cancella messaggio</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="message_bottom">
-                                <span class="hours">16:13</span>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="bottom_container">
                         <div class="emoji_open">
                             <div class="top">
-
                             </div>
                             <div class="search_emoji">
                                 <input type="text" placeholder="Cerca emoji">
