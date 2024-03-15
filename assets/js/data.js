@@ -28,6 +28,7 @@ export const randomResponses = [
     "Cosa ti piacerebbe imparare a fare?",
 ];
 
+
 export let contacts = [
     {
         name: 'Michele',

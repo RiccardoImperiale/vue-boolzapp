@@ -1,4 +1,5 @@
 import { contacts, randomResponses } from './data.js'
+import { emojis } from './emojis.js'
 const { createApp } = Vue
 
 createApp({
@@ -12,7 +13,8 @@ createApp({
             filteredContacts: contacts,
             lastSeen: '',
             randomResponses: randomResponses,
-            isEmojis: false
+            isEmojis: false,
+            emojis: emojis
         }
     },
     methods: {
@@ -85,5 +87,6 @@ createApp({
     },
     created() {
         this.openChat(0);
+        console.log(this.emojis[0]);
     }
 }).mount('#app')
