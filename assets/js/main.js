@@ -28,7 +28,6 @@ createApp({
                     return { ...message, isOpen: false }
                 })
             };
-
             this.getLastSeenTime();
         },
         getLastSeenTime() {
@@ -66,6 +65,7 @@ createApp({
                 currentChatByName.messages.push(newMsg);
                 this.currentContact.messages.push(newMsg);
                 this.$nextTick(this.scrollToBottom);
+                this.getLastSeenTime();
             }, 1000);
         },
         searchFilter() {
@@ -103,6 +103,5 @@ createApp({
     },
     created() {
         this.openChat(0);
-        console.log(this.filteredEmojis[0].aliases);
     }
 }).mount('#app')
