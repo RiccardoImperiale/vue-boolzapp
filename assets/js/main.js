@@ -43,7 +43,7 @@ createApp({
             if (this.newMessage !== '') {
                 // find current chat by name in contacts array
                 const currentChatByName = contacts.find(contact => contact.name === name);
-                const dateAndTime = this.getDateAndTime(); 
+                const dateAndTime = this.getDateAndTime();
                 // create new message
                 let newMsg = { date: dateAndTime.date, time: dateAndTime.time, message: this.newMessage, status: 'sent' };
                 // update current and main contacts array
@@ -73,8 +73,8 @@ createApp({
         },
         emojisFilter() {
             this.filteredEmojis = this.emojis.filter(emoji => {
-                return emoji.aliases.includes(this.searchEmoji.toLowerCase());
-            });
+                return emoji.aliases.some(alias => alias.startsWith(this.searchEmoji.toLowerCase()));
+            })
         },
         toggleOptions(index) {
             this.currentContact.messages[index].isOpen = !this.currentContact.messages[index].isOpen;
@@ -91,7 +91,7 @@ createApp({
         toggleEmojis() {
             this.isEmojis = !this.isEmojis;
         },
-        addEmoji(index){
+        addEmoji(index) {
             this.newMessage += this.filteredEmojis[index].emoji; // add emoji to message
         }
     },

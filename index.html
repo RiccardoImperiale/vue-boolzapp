@@ -41,7 +41,7 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="chats_list">
-                        <!-- single chat -->
+                        <!-- single chat contact -->
                         <div v-for="(contact, index) in filteredContacts" @click="openChat(index)"
                             :class="filteredContacts[index].name == currentContact.name ? 'selected_chat contact_chat' : 'contact_chat'">
                             <div class="contact">
