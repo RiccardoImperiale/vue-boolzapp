@@ -370,7 +370,7 @@ h3,
 .emoji_open {
     position: absolute;
     bottom: 70px;
-    height: 200px;
+    height: 190px;
     width: 100%;
 }
 
@@ -413,10 +413,10 @@ h3,
     }
 
     .emojis {
+        padding-right: .5rem;
         overflow-x: hidden;
         scrollbar-width: thin;
-        /* height: 97px; */
-        height: 120px;
+        height: 130px;
         width: 100%;
         display: flex;
         gap: .3rem;
