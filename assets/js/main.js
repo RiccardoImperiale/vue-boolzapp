@@ -1,5 +1,5 @@
 import { contacts, randomResponses } from './data.js'
-import { emojis } from './emojis.js'
+import { emojisList } from './emojisList.js'
 const { createApp } = Vue
 
 createApp({
@@ -14,7 +14,7 @@ createApp({
             lastSeen: '',
             randomResponses: randomResponses,
             isEmojis: false,
-            emojis: emojis
+            emojis: emojisList
         }
     },
     methods: {
