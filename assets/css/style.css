@@ -40,8 +40,9 @@ input {
     border: 1px solid var(--boolz-secondary-lighter);
     border-radius: .4rem;
 
-    &:focus-visible {
+    &:focus{
         outline: none;
+        border: 1.5px solid var(--boolz-secondary);
     }
 }
 
@@ -227,7 +228,7 @@ h3,
 .chat {
     background-image: url('../img/mine.jpg');
     height: calc(100% - 140px);
-    overflow-x: hidden;
+    overflow-y: scroll;
     padding: 2rem 5rem;
     display: flex;
     flex-direction: column;
@@ -275,6 +276,7 @@ h3,
 .chat_emojis_close {
     height: calc(100% - 140px);
 }
+
 .chat_emojis_open {
     height: calc(100% - 320px);
 }
@@ -381,14 +383,14 @@ h3,
 
 .emoji_open,
 .emoji_close {
-    background-color: var(--boolz-secondary-lightest);
+    background-color: var(--boolz-secondary-lighter);
     border-radius: .5rem .5rem 0 0;
     overflow: hidden;
     transition: .5s;
 
     .top {
         height: 30px;
-        background-color: var(--boolz-secondary-lightest);
+        background-color: var(--boolz-secondary-lighter);
     }
 
     .search_emoji {
@@ -396,8 +398,7 @@ h3,
         padding: .4rem .8rem .4rem .4rem;
 
         & input {
-            background-color: var(--boolz-secondary-lighter);
-            border: 1px solid var(--boolz-secondary);
+            background-color: white;
             padding-left: 1rem;
         }
     }
