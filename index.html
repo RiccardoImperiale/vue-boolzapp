@@ -48,10 +48,10 @@
                                 <img :src="contact.avatar" alt="contact avatar">
                                 <div class="contact_name">
                                     <h3>{{contact.name}}</h3>
-                                    <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                                    <p v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length - 1].message}}</p>
                                 </div>
                             </div>
-                            <div class="hours">{{contact.messages[contact.messages.length - 1].time}}</div>
+                            <div v-if="contact.messages.length > 0" class="hours">{{contact.messages[contact.messages.length - 1].time}}</div>
                         </div>
                     </div>
                 </div>

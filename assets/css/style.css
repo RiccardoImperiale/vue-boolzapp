@@ -40,7 +40,7 @@ input {
     border: 1px solid var(--boolz-secondary-lighter);
     border-radius: .4rem;
 
-    &:focus{
+    &:focus {
         outline: none;
         border: 1.5px solid var(--boolz-secondary);
     }

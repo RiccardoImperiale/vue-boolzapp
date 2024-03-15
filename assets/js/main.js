@@ -27,7 +27,7 @@ createApp({
                 messages: this.filteredContacts[index].messages.map(message => {
                     return { ...message, isOpen: false }
                 })
-            };
+            }; // isOpen keeps track of the msg popup
             this.getLastSeenTime();
         },
         getLastSeenTime() {
@@ -82,6 +82,9 @@ createApp({
             this.currentContact.messages[index].isOpen = !this.currentContact.messages[index].isOpen;
         },
         deleteMessage(index) {
+            console.log(this.currentContact.messages);
+            // if (this.currentContact.messages.length > 0){
+            // }
             this.currentContact.messages.splice(index, 1);
             // search the same contact in the filtered contacts array
             const currentContactByName = this.filteredContacts.find(contact => contact.name === this.currentContact.name);
@@ -89,6 +92,8 @@ createApp({
             const contactIndex = this.filteredContacts.map(contact => contact.name).indexOf(currentContactByName.name);
             // delete the message from the filtered array also 
             this.filteredContacts[contactIndex].messages.splice(index, 1);
+       
+
         },
         toggleEmojis() {
             this.isEmojis = !this.isEmojis;
