@@ -7,6 +7,7 @@
     --boolz-secondary: #DBDBD3;
     --boolz-secondary-light: #EAEAEA;
     --boolz-secondary-lighter: #F3EEEA;
+    --boolz-secondary-lightest: #faf7f5;
 }
 
 * {
@@ -15,7 +16,6 @@
     box-sizing: border-box;
 }
 
-body,
 #app {
     font-family: sans-serif;
     display: flex;
@@ -80,8 +80,6 @@ h3,
     background-color: #009688;
     height: 100%;
 }
-
-/* Debug */
 
 
 /* App styles ---------------------------------------------------> */
@@ -314,7 +312,6 @@ h3,
     position: relative;
 
     & .message_options {
-        /* display: none; */
         border-radius: .5rem;
         overflow: hidden;
         background-color: white;
@@ -368,7 +365,6 @@ h3,
 
 /* Emojis Style ---------------------------------------------------> */
 
-
 .emoji_open {
     position: absolute;
     bottom: 70px;
@@ -385,23 +381,23 @@ h3,
 
 .emoji_open,
 .emoji_close {
-    background-color: var(--boolz-secondary-lighter);
+    background-color: var(--boolz-secondary-lightest);
     border-radius: .5rem .5rem 0 0;
     overflow: hidden;
     transition: .5s;
 
     .top {
         height: 30px;
-        background-color: var(--boolz-secondary-lighter);
+        background-color: var(--boolz-secondary-lightest);
     }
 
     .search_emoji {
-        background-color: var(--boolz-secondary-lighter);
         height: 50px;
         padding: .4rem .8rem .4rem .4rem;
 
         & input {
-            background-color: #e9e3de;
+            background-color: var(--boolz-secondary-lighter);
+            border: 1px solid var(--boolz-secondary);
             padding-left: 1rem;
         }
     }
@@ -409,7 +405,6 @@ h3,
     .emoji {
         padding: 0 .8rem;
         font-size: .8rem;
-        color: var(--boolz-secondary-dark);
     }
 
     .emoji_list {
@@ -478,7 +473,6 @@ h3,
     .contact_chat {
         padding: 0;
 
-
         & .contact {
             margin: auto;
         }
@@ -491,7 +485,6 @@ h3,
 }
 
 @media screen and (max-width: 540px) {
-
 
     .left {
         display: none;
