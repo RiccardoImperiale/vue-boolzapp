@@ -90,6 +90,9 @@ createApp({
         },
         toggleEmojis() {
             this.isEmojis = !this.isEmojis;
+        },
+        addEmoji(index){
+            this.newMessage += this.filteredEmojis[index].emoji; // add emoji to message
         }
     },
     created() {

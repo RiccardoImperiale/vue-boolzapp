@@ -105,7 +105,7 @@
                                 </div> -->
                                 <div class="emoji_list">
                                     <div class="emojis">
-                                        <span v-for="(emoji, index) in filteredEmojis">{{emoji.emoji}}</span>
+                                        <span @click="addEmoji(index)" v-for="(emoji, index) in filteredEmojis">{{emoji.emoji}}</span>
                                     </div>
                                 </div>
                             </div>
