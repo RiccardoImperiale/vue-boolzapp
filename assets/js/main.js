@@ -49,6 +49,7 @@ createApp({
                 // update current and main contacts array
                 currentChatByName.messages.push(newMsg);
                 this.currentContact.messages.push(newMsg);
+                this.$nextTick(this.scrollToBottom); // $nextTick performs an action after the next DOM update cycle
                 this.automaticAnswer(currentChatByName); // trigger automatic answer
                 this.newMessage = ''; // clean input
             }
@@ -64,6 +65,7 @@ createApp({
                 let newMsg = { date: dateAndTime.date, time: dateAndTime.time, message: randomAnswer, status: 'received' };
                 currentChatByName.messages.push(newMsg);
                 this.currentContact.messages.push(newMsg);
+                this.$nextTick(this.scrollToBottom);
             }, 1000);
         },
         searchFilter() {
@@ -93,6 +95,10 @@ createApp({
         },
         addEmoji(index) {
             this.newMessage += this.filteredEmojis[index].emoji; // add emoji to message
+        },
+        scrollToBottom() {
+            const chatContainer = this.$refs.chatContainer; // $refs reference a specific elements in the dom
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         }
     },
     created() {
