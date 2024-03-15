@@ -72,7 +72,7 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div class="chat">
+                    <div :class="isEmojis ? 'chat_emojis_open' : 'chat_emojis_close'" class="chat">
                         <div :key="index" v-for="(message,index) in currentContact.messages"
                             :class="message.status == 'sent' ? 'message sent' : 'message received'">
                             <div class="message_top">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <div class="bottom_container">
-                        <div class="emoji_open">
+                        <div :class="isEmojis ? 'emoji_open' : 'emoji_close'">
                             <div class="top">
                             </div>
                             <div class="search_emoji">
@@ -105,14 +105,14 @@
                                 </div>
                                 <div class="emoji_list">
                                     <div class="emojis">
-
+                                        igigig
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="bottom">
                             <template v-if="currentContact.length !== 0">
-                                <i class="fa-regular fa-face-smile"></i>
+                                <i @click="toggleEmojis" class="fa-regular fa-face-smile"></i>
                                 <input @keyup.enter="send(currentContact.name)" v-model="newMessage" type="text"
                                     placeholder="Scrivi un messaggio">
                                 <i class="fa-solid fa-microphone"></i>

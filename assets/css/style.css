@@ -59,7 +59,7 @@ h3 {
 }
 
 p {
-    font-size: .8rem;
+    font-size: .9rem;
 }
 
 h3,
@@ -214,7 +214,7 @@ h3,
     }
 }
 
-.selected_chat{
+.selected_chat {
     background-color: #eee4da58;
 }
 
@@ -245,7 +245,7 @@ h3,
     }
 
     .message {
-        padding: 1.2rem 1.2rem .3rem 1.2rem;
+        padding: 1rem 1.2rem .3rem 1.2rem;
         width: 60%;
         position: relative;
     }
@@ -274,6 +274,13 @@ h3,
     }
 }
 
+.chat_emojis_close {
+    height: calc(100% - 140px);
+}
+.chat_emojis_open {
+    height: calc(100% - 320px);
+}
+
 .message_top {
     display: flex;
     justify-content: space-between;
@@ -292,7 +299,7 @@ h3,
 
 .hours {
     position: relative;
-    font-size: .8rem;
+    font-size: .9rem;
     left: .5rem;
 }
 
@@ -348,6 +355,7 @@ h3,
     & input {
         width: 100%;
         padding-left: 1rem;
+        font-size: 1rem;
     }
 
     & i {
@@ -358,13 +366,27 @@ h3,
     }
 }
 
+/* Emojis Style ---------------------------------------------------> */
+
+
 .emoji_open {
+    position: absolute;
+    bottom: 70px;
+    height: 200px;
+    width: 100%;
+}
+
+.emoji_close {
     position: absolute;
     bottom: 0px;
     width: 100%;
     height: 70px;
+}
+
+.emoji_open,
+.emoji_close {
     background-color: var(--boolz-secondary-lighter);
-    border-radius: 1rem 1rem 0 0;
+    border-radius: .5rem .5rem 0 0;
     overflow: hidden;
     transition: .5s;
 
@@ -409,9 +431,6 @@ h3,
         }
     }
 }
-
-
-
 
 
 /* Responsive ---------------------------------------------------> */

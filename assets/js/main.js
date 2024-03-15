@@ -11,7 +11,8 @@ createApp({
             search: '',
             filteredContacts: contacts,
             lastSeen: '',
-            randomResponses: randomResponses
+            randomResponses: randomResponses,
+            isEmojis: false
         }
     },
     methods: {
@@ -35,17 +36,18 @@ createApp({
             return { date: this.currentTime.toFormat('dd/MM/yyyy'), time: this.currentTime.toFormat('HH:mm') };
         },
         send(name) {
-            // find current chat by name in contacts array
-            const currentChatByName = contacts.find(contact => contact.name === name);
-            // get current time and date
-            const dateAndTime = this.getDateAndTime();
-            // create new message
-            let newMsg = { date: dateAndTime.date, time: dateAndTime.time, message: this.newMessage, status: 'sent' };
-            // update current and main contacts array
-            currentChatByName.messages.push(newMsg);
-            this.currentContact.messages.push(newMsg);
-            this.automaticAnswer(currentChatByName); // trigger automatic answer
-            this.newMessage = ''; // clean input
+            if (this.newMessage !== '') {
+                // find current chat by name in contacts array
+                const currentChatByName = contacts.find(contact => contact.name === name);
+                const dateAndTime = this.getDateAndTime(); 
+                // create new message
+                let newMsg = { date: dateAndTime.date, time: dateAndTime.time, message: this.newMessage, status: 'sent' };
+                // update current and main contacts array
+                currentChatByName.messages.push(newMsg);
+                this.currentContact.messages.push(newMsg);
+                this.automaticAnswer(currentChatByName); // trigger automatic answer
+                this.newMessage = ''; // clean input
+            }
         },
         genRandResponse() {
             const randNum = Math.floor(Math.random() * this.randomResponses.length);
@@ -76,10 +78,12 @@ createApp({
             const contactIndex = this.filteredContacts.map(contact => contact.name).indexOf(currentContactByName.name);
             // delete the message from the filtered array also 
             this.filteredContacts[contactIndex].messages.splice(index, 1);
+        },
+        toggleEmojis() {
+            this.isEmojis = !this.isEmojis;
         }
     },
     created() {
         this.openChat(0);
-        console.log(this.randomResponses);
     }
 }).mount('#app')
