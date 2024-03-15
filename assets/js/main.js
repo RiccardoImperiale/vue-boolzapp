@@ -14,7 +14,9 @@ createApp({
             lastSeen: '',
             randomResponses: randomResponses,
             isEmojis: false,
-            emojis: emojisList
+            searchEmoji: '',
+            emojis: emojisList,
+            filteredEmojis: emojisList,
         }
     },
     methods: {
@@ -69,6 +71,11 @@ createApp({
                 return contact.name.toLowerCase().startsWith(this.search.toLowerCase());
             });
         },
+        emojisFilter() {
+            this.filteredEmojis = this.emojis.filter(emoji => {
+                return emoji.aliases.includes(this.searchEmoji.toLowerCase());
+            });
+        },
         toggleOptions(index) {
             this.currentContact.messages[index].isOpen = !this.currentContact.messages[index].isOpen;
         },
@@ -87,6 +94,6 @@ createApp({
     },
     created() {
         this.openChat(0);
-        console.log(this.emojis[0]);
+        console.log(this.filteredEmojis[0].aliases);
     }
 }).mount('#app')

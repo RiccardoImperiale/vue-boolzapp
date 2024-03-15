@@ -97,7 +97,7 @@
                             <div class="top">
                             </div>
                             <div class="search_emoji">
-                                <input type="text" placeholder="Cerca emoji">
+                                <input v-model="searchEmoji" @input="emojisFilter" type="text" placeholder="Cerca emoji">
                             </div>
                             <div class="emoji">
                                 <!-- <div class="emoji_title">
@@ -105,7 +105,7 @@
                                 </div> -->
                                 <div class="emoji_list">
                                     <div class="emojis">
-                                        <span v-for="(emoji, index) in emojis">{{emoji.emoji}}</span>
+                                        <span v-for="(emoji, index) in filteredEmojis">{{emoji.emoji}}</span>
                                     </div>
                                 </div>
                             </div>
