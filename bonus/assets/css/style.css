@@ -24,7 +24,8 @@
     --blz-bg-chat-dark: #000000;
     --blz-bg-800: #262626;
     --blz-bg-msg-r: #131313;
-    --blz-bg-msg: #36CE00;
+    --blz-bg-msg: #081a01;
+    --blz-bg-msg: #1f0629;
     --blz-accent: #36CE00;
     --blz-text: #E0E0E0;
     --blz-text-600: #6D6D6D;
@@ -127,6 +128,10 @@ h3,
 
 .scrollbar-chat-col {
     scrollbar-color: var(--blz-accent) var(--blz-bg-chat);
+}
+
+.scrollbar-emoji {
+    scrollbar-color: var(--blz-text-600) var(--blz-bg);
 }
 
 .contact_name {
@@ -393,6 +398,7 @@ h3,
         scrollbar-width: thin;
         transition: height .5s;
         background-image: url("../img/mine.jpg");
+        scroll-behavior: smooth;
 
         .message_top::after,
         .message_received::after {
@@ -597,7 +603,7 @@ h3,
     width: 100%;
     border-radius: 1rem 1rem 0 0;
     overflow: hidden;
-    transition: .5s;
+    transition: .6s;
 
     .top_emojis {
         height: 20px;
@@ -651,12 +657,14 @@ h3,
     bottom: 0px;
     height: 285px;
     background-color: var(--blz-bg);
+    opacity: 1;
 }
 
 .emoji_close {
     position: absolute;
     bottom: 0px;
     height: 0px;
+    opacity: 0;
 }
 
 /* Responsive ---------------------------------------------------> */

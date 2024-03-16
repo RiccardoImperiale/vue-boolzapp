@@ -95,6 +95,11 @@ createApp({
         },
         toggleEmojis() {
             this.isEmojis = !this.isEmojis;
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    this.scrollToBottom();
+                }, 350);
+            });
         },
         addEmoji(index) {
             this.newMessage += this.filteredEmojis[index].emoji; // add emoji to message
