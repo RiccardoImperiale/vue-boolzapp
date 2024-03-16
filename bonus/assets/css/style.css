@@ -1,18 +1,5 @@
 :root {
-
-
     /* light mode
-    --blz-bg-800: #8A8A8A;
-    --blz-bg-400: #F1F4F6;
-    --blz-bg-200: #F7F8FA;
-    --blz-accent: #36CE00;
-    --blz-accent-td: #61C554;
-    --blz-darkest: #000000;
-    --blz-700: #A9A9A9;
-    --blz-500: #BEBEBE;
-    --blz-200: #F2F3F5;
-    --blz-lightest: #FFFFFF; 
-
 
     --blz-bg-main: #E8ECEF;
     --blz-bg: #FFFFFF;
@@ -36,10 +23,6 @@
     --blz-text: #E0E0E0;
     --blz-text-600: #6D6D6D;
     --blz-text-300: #B7B7B7;
-
-
-
-
 }
 
 * {
@@ -120,25 +103,6 @@ h3,
     background-color: var(--blz-bg);
 }
 
-.left {
-    min-width: 380px;
-    border-right: 1px solid var(--blz-bg-chat);
-
-    & p {
-        color: var(--boolz-secondary-dark);
-        padding-right: 1rem;
-    }
-}
-
-.right {
-    position: relative;
-    width: 100%;
-
-    & p {
-        color: var(--boolz-secondary-darker);
-    }
-}
-
 .contact {
     display: flex;
     align-items: center;
@@ -159,9 +123,23 @@ h3,
     scrollbar-color: var(--blz-bg-msg) var(--blz-bg-chat-dark);
 }
 
+.contact_name {
+    & h3 {
+        margin-bottom: .25rem;
+    }
+
+    & p {
+        color: var(--blz-text-600);
+        font-size: 0.95rem;
+    }
+}
+
 /* Left styles ---------------------------------------------------> */
 
 .left {
+    min-width: 380px;
+    border-right: 1px solid var(--blz-bg-chat);
+
     .top {
         display: flex;
         align-items: center;
@@ -323,17 +301,11 @@ h3,
                 background-color: var(--blz-bg-chat);
             }
 
-            .contact_name {
-                & h3 {
-                    margin-bottom: .25rem;
-                }
-
-                & p {
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    max-width: 210px;
-                }
+            & p {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 200px;
             }
 
             & .hours {
@@ -352,6 +324,9 @@ h3,
 /* Right styles ---------------------------------------------------> */
 
 .right {
+    position: relative;
+    width: 100%;
+
     .top {
         display: flex;
         align-items: center;
