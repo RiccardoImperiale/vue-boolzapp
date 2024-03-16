@@ -510,10 +510,12 @@ h3,
 
     .chat_emojis_close {
         height: calc(100% - 80px);
+        transition: height 1s;
     }
 
     .chat_emojis_open {
         height: calc(100% - 365px);
+        /* transition: height .75s; */
     }
 }
 
@@ -525,7 +527,6 @@ h3,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: var(--blz-bg-chat); */
     background-color: transparent;
     padding: 0 2rem 1.5rem 2rem;
     gap: .8rem;
@@ -578,21 +579,6 @@ h3,
         padding-right: .2rem;
         cursor: pointer;
     }
-
-    /* 
-    .mic_icon {
-        background-color: var(--blz-accent);
-        height: 100%;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        & img {
-            width: 1.5rem;
-        }
-    } */
 }
 
 /* Emojis Style ---------------------------------------------------> */
@@ -603,7 +589,7 @@ h3,
     width: 100%;
     border-radius: 1rem 1rem 0 0;
     overflow: hidden;
-    transition: .6s;
+    transition: .4s ease-in-out;
 
     .top_emojis {
         height: 20px;
@@ -689,7 +675,6 @@ h3,
         min-width: 82px;
 
         .top {
-            /* height: 80px; */
             display: none;
 
             .buttons {
