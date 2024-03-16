@@ -48,7 +48,7 @@
                                 <div class="text">Add</div>
                             </div>
                             <!-- single status -->
-                            <div v-for="contact in contacts.slice(0, contacts.length - 1).reverse()" class="story">
+                            <div v-for="contact in contacts.slice(0, contacts.length).reverse()" class="story">
                                 <div class="story_contact">
                                     <div class="circle_contact"></div>
                                     <img :src="contact.avatar" alt="">

@@ -29,6 +29,7 @@ createApp({
                 })
             }; // isOpen keeps track of the msg popup
             this.getLastSeenTime();
+            this.$nextTick(this.scrollToBottom);
         },
         getLastSeenTime() {
             const receivedMessages = this.currentContact.messages.filter(message => message.status === 'received');
