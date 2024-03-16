@@ -53,6 +53,8 @@ createApp({
                 this.automaticAnswer(currentChatByName); // trigger automatic answer
                 this.newMessage = ''; // clean input
             }
+
+            this.moveChatToTop(name);
         },
         genRandResponse() {
             const randNum = Math.floor(Math.random() * this.randomResponses.length);
@@ -100,6 +102,14 @@ createApp({
         scrollToBottom() {
             const chatContainer = this.$refs.chatContainer; // $refs reference a specific elements in the dom
             chatContainer.scrollTop = chatContainer.scrollHeight;
+        },
+        moveChatToTop(name) {
+            // Get the index of the current chat by using the name
+            const indexCurrentChat = this.filteredContacts.findIndex(contact => contact.name === name);
+            // Remove the chat from its current position
+            const currentChat = this.filteredContacts.splice(indexCurrentChat, 1)[0];
+            // Move it to the top of the list
+            this.filteredContacts.unshift(currentChat);
         }
     },
     created() {

@@ -190,8 +190,8 @@ h3,
                 font-size: 1rem;
                 font-weight: 500;
             }
-            
-            &:focus{
+
+            &:focus {
                 border: 2.25px solid var(--blz-bg-800);
             }
         }
@@ -363,14 +363,22 @@ h3,
             font-size: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 1.2rem;
 
-            & i {
+            & i:not(.fa-ellipsis-vertical) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 cursor: pointer;
+                background-color: var(--blz-bg-chat-dark);
+                width: 38px;
+                height: 38px;
+                border-radius: 20px;
+                margin-left: .4rem;
             }
 
             & .fa-ellipsis-vertical {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
+                margin-inline: .8rem;
             }
         }
     }
@@ -669,9 +677,13 @@ h3,
     }
 
     .left {
+        width: 0;
         min-width: 82px;
 
         .top {
+            /* height: 80px; */
+            display: none;
+
             .buttons {
                 display: none;
             }
@@ -679,6 +691,10 @@ h3,
 
         .chats_header {
             display: none;
+        }
+
+        .chats_list {
+            height: 100%;
         }
     }
 
@@ -689,14 +705,16 @@ h3,
 
     .right {
         width: 100%;
+
+        .top {
+            & img {
+                display: none;
+            }
+        }
     }
 
     .chat {
         padding: 2rem 3rem;
-    }
-
-    .chats_list {
-        height: 100%;
     }
 
     .contact_chat {
@@ -721,6 +739,13 @@ h3,
 
     .right {
         width: 100%;
+
+        .top {
+            & img {
+                display: block;
+            }
+        }
+
     }
 
     .chat {
