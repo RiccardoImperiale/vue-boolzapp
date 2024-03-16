@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp 2</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container-lg container-md">
+            <div class="app">
+                <!-- contacts -->
+                <div class="left">
+                    <div class="top">
+                        <div class="buttons">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="search">
+                        <input v-model="search" @input="searchFilter" type="text"
+                            placeholder="Search or start new chat">
+                        <img src="./assets/img/search.png" alt="">
+                    </div>
+                    <div class="status">
+                        <h2>Status</h2>
+                        <div class="stories">
+                            <div class="story_add">
+                                <div class="circle">
+                                    <img src="./assets/img/add-circle.png" alt="">
+                                    <img class="plus" src="./assets/img/add-plus.png" alt="">
+                                </div>
+                                <div class="text">Add</div>
+                            </div>
+                            <div class="story">
+                                <div class="story_contact">
+                                    <div class="circle_contact"></div>
+                                    <img src="./assets/img/avatar_1.jpg" alt="">
+                                </div>
+                                <div class="text">Add</div>
+                            </div>
+                            <div class="story">
+                                <div class="story_contact">
+                                    <div class="circle_contact"></div>
+                                    <img src="./assets/img/avatar_1.jpg" alt="">
+                                </div>
+                                <div class="text">Add</div>
+                            </div>
+                            <div class="story">
+                                <div class="story_contact">
+                                    <div class="circle_contact"></div>
+                                    <img src="./assets/img/avatar_1.jpg" alt="">
+                                </div>
+                                <div class="text">Add</div>
+                            </div>
+                            <div class="story">
+                                <div class="story_contact">
+                                    <div class="circle_contact"></div>
+                                    <img src="./assets/img/avatar_1.jpg" alt="">
+                                </div>
+                                <div class="text">Add</div>
+                            </div>
+                            <div class="story">
+                                <div class="story_contact">
+                                    <div class="circle_contact"></div>
+                                    <img src="./assets/img/avatar_1.jpg" alt="">
+                                </div>
+                                <div class="text">Add</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="chats_header">
+                        <h2>all chats</h2>
+                        <h2 id="private">private</h2>
+                    </div>
+                    <div class="chats_list scrollbar-col">
+                        <!-- single chat contact -->
+                        <div v-for="(contact, index) in filteredContacts" @click="openChat(index)"
+                            :class="filteredContacts[index].name == currentContact.name ? 'selected_chat contact_chat' : 'contact_chat'">
+                            <div class="contact">
+                                <img :src="contact.avatar" alt="contact avatar">
+                                <div class="contact_name">
+                                    <h3>{{contact.name}}</h3>
+                                    <p v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length -
+                                        1].message}}</p>
+                                </div>
+                            </div>
+                            <div v-if="contact.messages.length > 0" class="hours">
+                                {{contact.messages[contact.messages.length - 1].time}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- chat -->
+                <div class="right">
+                    <div class="top">
+                        <!-- single chat -->
+                        <div class="contact">
+                            <img v-show="currentContact.avatar" :src="currentContact.avatar" alt="avatar">
+                            <div class="contact_name">
+                                <h3>{{currentContact.name}}</h3>
+                                <p v-show="currentContact.avatar">Ultimo accesso oggi alle {{lastSeen}}</p>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div ref="chatContainer" :class="isEmojis ? 'chat_emojis_open' : 'chat_emojis_close'" class="chat scrollbar-chat-col">
+                        <div :key="index" v-for="(message,index) in currentContact.messages"
+                            :class="message.status == 'sent' ? 'message sent' : 'message received'">
+                            <div class="message_top">
+                                <div class="text">
+                                    {{message.message}}
+                                </div>
+                                <div class="arrow_down">
+                                    <i @click="toggleOptions(index)" class="fa-solid fa-angle-down"></i>
+                                    <ul v-if="message.isOpen" class="message_options">
+                                        <li>Info messaggio</li>
+                                        <li @click="deleteMessage(index)">Cancella messaggio</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="message_bottom">
+                                <span class="hours">{{message.time}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom_container">
+                        <div :class="isEmojis ? 'emoji_open' : 'emoji_close'">
+                            <div class="top">
+                            </div>
+                            <div class="search_emoji">
+                                <input v-model="searchEmoji" @input="emojisFilter" type="text"
+                                    placeholder="Cerca emoji">
+                            </div>
+                            <div class="emoji scrollbar-col">
+                                <!-- <div class="emoji_title">
+                                    Faccine e Persone
+                                </div> -->
+                                <div class="emoji_list">
+                                    <div class="emojis">
+                                        <span @click="addEmoji(index)"
+                                            v-for="(emoji, index) in filteredEmojis">{{emoji.emoji}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <template v-if="currentContact.length !== 0">
+                                <i @click="toggleEmojis" class="fa-regular fa-face-smile"></i>
+                                <input @keyup.enter="send(currentContact.name)" v-model="newMessage" type="text"
+                                    placeholder="Scrivi un messaggio">
+                                <i class="fa-solid fa-microphone"></i>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
+
+</html>
