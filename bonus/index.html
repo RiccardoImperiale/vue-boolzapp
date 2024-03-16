@@ -125,9 +125,7 @@
                     </div>
                     <div ref="chatContainer" :class="isEmojis ? 'chat_emojis_open' : 'chat_emojis_close'"
                         class="chat scrollbar-chat-col">
-                       
                         <template :key="index" v-for="(message,index) in currentContact.messages">
-
                             <div :class="message.status == 'sent' ? 'message sent' : 'message received'">
                                 <div class="message_top">
                                     <div class="text">
@@ -145,23 +143,17 @@
                             <div :class="message.status == 'sent' ? 'sent' : 'received'" class="message_bottom">
                                 <span class="hours">{{message.time}}</span>
                             </div>
-
                         </template>
-
-
                     </div>
                     <div class="bottom_container">
                         <div :class="isEmojis ? 'emoji_open' : 'emoji_close'">
-                            <div class="top">
+                            <div class="top_emojis">
                             </div>
                             <div class="search_emoji">
                                 <input v-model="searchEmoji" @input="emojisFilter" type="text"
-                                    placeholder="Cerca emoji">
+                                    placeholder="Search emoji">
                             </div>
                             <div class="emoji scrollbar-col">
-                                <!-- <div class="emoji_title">
-                                    Faccine e Persone
-                                </div> -->
                                 <div class="emoji_list">
                                     <div class="emojis">
                                         <span @click="addEmoji(index)"
@@ -170,13 +162,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bottom">
-                            <template v-if="currentContact.length !== 0">
-                                <i @click="toggleEmojis" class="fa-regular fa-face-smile"></i>
+                        <div v-if="currentContact.length !== 0" class="bottom">
+                            <div class="container">
                                 <input @keyup.enter="send(currentContact.name)" v-model="newMessage" type="text"
-                                    placeholder="Scrivi un messaggio">
-                                <i class="fa-solid fa-microphone"></i>
-                            </template>
+                                    placeholder="Type a message">
+                                <i @click="toggleEmojis" class="fa-regular fa-face-smile"></i>
+                            </div>
+                            <i @click="send(currentContact.name)" class="fa-regular fa-paper-plane"></i>
+                            <!-- <div class="mic_icon">
+                                <img src="./assets/img/send.png" alt="paperplane icon">
+                            </div> -->
                         </div>
                     </div>
                 </div>

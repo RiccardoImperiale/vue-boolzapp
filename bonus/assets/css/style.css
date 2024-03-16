@@ -18,13 +18,14 @@
     --blz-bg-chat-dark: #000000;
     --blz-bg-800: #262626;
     --blz-bg-msg-r: #131313;
-    --blz-bg-msg: #61C554;
+    --blz-bg-msg: #36CE00;
+    /* --blz-bg-msg: #61C554; */
     --blz-accent: #36CE00;
     --blz-text: #E0E0E0;
     --blz-text-600: #6D6D6D;
     --blz-text-300: #B7B7B7;
     --blz-lightest: #FFFFFF;
-    
+
 }
 
 * {
@@ -54,10 +55,11 @@ input {
     width: 100%;
     height: 100%;
     border: none;
+    border: 2.25px solid transparent;
 
     &:focus {
         outline: none;
-        border: 2.25px solid var(--blz-bg-msg);
+        border: 2.2px solid var(--blz-bg-msg);
         /* border: 2.5px solid var(--blz-text-600); */
     }
 }
@@ -74,7 +76,8 @@ h2 {
 }
 
 h3 {
-    font-weight: 400;
+    font-weight: 500;
+    letter-spacing: .05rem;
 }
 
 h3,
@@ -177,10 +180,13 @@ h3,
             padding-left: 2.8rem;
             border-radius: 20px;
             background-color: var(--blz-bg-chat-dark);
+            color: var(--blz-text-600);
+            font-weight: 600;
 
             &::placeholder {
                 color: var(--blz-text-600);
                 font-size: 1rem;
+                font-weight: 500;
             }
         }
 
@@ -328,12 +334,14 @@ h3,
 .right {
     position: relative;
     width: calc(100% - 380px);
+    background-color: var(--blz-bg-chat);
 
     .top {
         display: flex;
         align-items: center;
         justify-content: space-between;
         height: 80px;
+        background-color: var(--blz-bg);
 
         .buttons {
             color: var(--blz-bg-main);
@@ -354,9 +362,9 @@ h3,
 
     .chat {
         background-color: var(--blz-bg-chat);
-        height: calc(100% - 291px);
+        height: calc(100% - 80px);
         overflow-y: auto;
-        padding: 2rem 4rem;
+        padding: 3rem 4rem 8rem 4rem;
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -373,7 +381,6 @@ h3,
         .message {
             padding: 1rem;
             border-radius: .5rem;
-
             width: 60%;
             position: relative;
 
@@ -386,6 +393,7 @@ h3,
                     padding-right: 1rem;
                     overflow-wrap: break-word;
                     color: var(--blz-lightest);
+                    /* font-size: 1.05rem; */
                 }
 
                 .arrow_down {
@@ -447,7 +455,6 @@ h3,
         .message_bottom.received {
             display: flex;
 
-            /* justify-content: flex-start; */
             .hours {
                 left: .85rem;
             }
@@ -464,47 +471,90 @@ h3,
     }
 
     .chat_emojis_close {
-        height: calc(100% - 140px);
+        height: calc(100% - 80px);
     }
 
     .chat_emojis_open {
-        height: calc(100% - 320px);
+        height: calc(100% - 365px);
     }
+}
 
+.bottom {
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: var(--blz-bg-chat); */
+    background-color: transparent;
+    padding: 0 2rem 1.5rem 2rem;
+    gap: .5rem;
 
-   
-
-
-
-    /* Dropdown effect */
-
-
-
-    .bottom {
-        height: 70px;
+    .container {
+        height: 100%;
         width: 100%;
-        position: absolute;
-        bottom: 0;
+        position: relative;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        background-color: var(--blz-bg);
-        padding: .5rem 0;
 
         & input {
-            width: 100%;
-            padding-left: 1rem;
+            padding-left: 4rem;
             font-size: 1rem;
+            background-color: var(--blz-bg);
+            border-radius: 40px;
+            /* color: var(--blz-accent); */
+            color: var(--blz-text-600);
+            font-weight: 600;
+
+            &:focus {
+                border: none;
+            }
         }
 
-        & i {
-            padding-inline: 2rem;
-            font-size: 1.5rem;
-            color: var(--boolz-secondary-darker);
+        .fa-face-smile {
+            position: absolute;
+            font-size: 1.8rem;
+            color: var(--blz-text-600);
+            left: 1rem;
             cursor: pointer;
+            transition: color .5s;
+
+            &:hover {
+                color: var(--blz-accent);
+            }
         }
     }
 
+    .fa-paper-plane {
+        background-color: var(--blz-accent);
+        height: 100%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: var(--blz-bg-800);
+        padding-right: .2rem;
+        cursor: pointer;
+    }
+
+    /* 
+    .mic_icon {
+        background-color: var(--blz-accent);
+        height: 100%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            width: 1.5rem;
+        }
+    } */
 }
 
 /* Emojis Style ---------------------------------------------------> */
@@ -513,40 +563,41 @@ h3,
 .emoji_close {
     position: absolute;
     width: 100%;
-    background-color: var(--boolz-secondary-lighter);
-    border-radius: .5rem .5rem 0 0;
+    border-radius: 1rem 1rem 0 0;
     overflow: hidden;
     transition: .5s;
 
-    .top {
-        height: 30px;
-        background-color: var(--boolz-secondary-lighter);
+    .top_emojis {
+        height: 20px;
     }
 
     .search_emoji {
         height: 50px;
-        padding: .4rem .8rem .4rem .4rem;
+        padding: .4rem 2.6rem .4rem 2rem;
 
         & input {
-            background-color: white;
+            background-color: var(--blz-bg-chat);
+            border-radius: 25px;
             padding-left: 1rem;
+            color: var(--blz-text-600);
+            font-weight: 600;
         }
     }
 
     .emoji {
-        padding: 0 .8rem;
         font-size: .8rem;
+        height: 100%;
     }
 
     .emoji_list {
-        padding-bottom: -70px;
+        padding: 0.5rem 2.8rem 0 2.5rem;
     }
 
     .emojis {
-        padding-right: .5rem;
+        padding-right: 1rem;
         overflow-x: hidden;
         scrollbar-width: thin;
-        height: 130px;
+        height: 100px;
         width: 100%;
         display: flex;
         gap: .3rem;
@@ -560,14 +611,15 @@ h3,
 }
 
 .emoji_open {
-    bottom: 70px;
-    height: 190px;
+    bottom: 0px;
+    height: 285px;
+    background-color: var(--blz-bg);
 }
 
 .emoji_close {
     position: absolute;
     bottom: 0px;
-    height: 70px;
+    height: 0px;
 }
 
 /* Responsive ---------------------------------------------------> */
@@ -580,18 +632,25 @@ h3,
 
     .app {
         height: 100vh;
+        border-radius: 0;
     }
 
     .left .top {
         justify-content: center;
     }
 
-    .left .buttons {
-        display: none;
-    }
-
     .left {
         min-width: 82px;
+
+        .top {
+            .buttons {
+                display: none;
+            }
+        }
+
+        .chats_header {
+            display: none;
+        }
     }
 
     .status,
