@@ -95,7 +95,7 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div ref="chatContainer" :class="isEmojis ? 'chat_emojis_open' : 'chat_emojis_close'"
+                    <div ref="chatContainer" :class="isEmojis ? 'chat_emojis_open p-chat_emojis_open' : 'chat_emojis_close p-chat_emojis_close'"
                         class="chat scrollbar-chat-col">
                         <template :key="index" v-for="(message,index) in currentContact.messages">
                             <div :class="message.status == 'sent' ? 'message sent' : 'message received'">
