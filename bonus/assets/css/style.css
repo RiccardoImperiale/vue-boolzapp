@@ -23,6 +23,8 @@
     --blz-text: #E0E0E0;
     --blz-text-600: #6D6D6D;
     --blz-text-300: #B7B7B7;
+    --blz-lightest: #FFFFFF;
+    
 }
 
 * {
@@ -325,7 +327,7 @@ h3,
 
 .right {
     position: relative;
-    width: 100%;
+    width: calc(100% - 380px);
 
     .top {
         display: flex;
@@ -369,11 +371,86 @@ h3,
         }
 
         .message {
-            padding: 1rem 1.2rem .3rem 1.2rem;
+            padding: 1rem;
             border-radius: .5rem;
 
             width: 60%;
             position: relative;
+
+            .message_top {
+                display: flex;
+                justify-content: space-between;
+
+                .text {
+                    width: calc(100% - 14px);
+                    padding-right: 1rem;
+                    overflow-wrap: break-word;
+                    color: var(--blz-lightest);
+                }
+
+                .arrow_down {
+                    width: 14px;
+                    position: relative;
+                    color: var(--blz-lightest);
+
+                    & .message_options {
+                        background-color: var(--blz-bg-800);
+                        border-radius: .5rem;
+                        overflow: hidden;
+                        position: absolute;
+                        top: 1.5rem;
+                        right: 0;
+                        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+                        z-index: 1;
+                        white-space: nowrap;
+
+                        & li {
+                            text-align: center;
+                            padding: .8rem 2rem;
+                        }
+
+                        & li:hover {
+                            background-color: var(--blz-bg);
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .fa-angle-down {
+                    font-size: 1rem;
+                    cursor: pointer;
+                }
+
+                .fa-angle-down:hover+.message_options,
+                .message_options:hover {
+                    display: block;
+                }
+            }
+        }
+
+        .hours {
+            position: relative;
+            font-size: .9rem;
+            top: -8px;
+            color: var(--blz-text-600);
+        }
+
+        .message_bottom.sent {
+            display: flex;
+            justify-content: flex-end;
+
+            .hours {
+                right: .85rem;
+            }
+        }
+
+        .message_bottom.received {
+            display: flex;
+
+            /* justify-content: flex-start; */
+            .hours {
+                left: .85rem;
+            }
         }
 
         .message.sent {
@@ -394,64 +471,14 @@ h3,
         height: calc(100% - 320px);
     }
 
-    .message_top {
-        display: flex;
-        justify-content: space-between;
-        gap: .8rem;
-    }
 
-    .message_bottom {
-        display: flex;
-        justify-content: flex-end;
-    }
+   
 
-    .fa-angle-down,
-    .hours {
-        color: var(--boolz-secondary-dark);
-    }
 
-    .fa-angle-down {
-        font-size: 1.2rem;
-        cursor: pointer;
-    }
-
-    .hours {
-        position: relative;
-        font-size: .9rem;
-        left: .5rem;
-    }
 
     /* Dropdown effect */
 
-    .arrow_down {
-        position: relative;
 
-        & .message_options {
-            border-radius: .5rem;
-            overflow: hidden;
-            background-color: white;
-            position: absolute;
-            top: 1.5rem;
-            right: 0;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
-            z-index: 1;
-            white-space: nowrap;
-
-            & li {
-                text-align: center;
-                padding: .8rem 2rem;
-            }
-
-            & li:hover {
-                background-color: var(--boolz-secondary-lighter);
-            }
-        }
-    }
-
-    .fa-angle-down:hover+.message_options,
-    .message_options:hover {
-        display: block;
-    }
 
     .bottom {
         height: 70px;
@@ -479,7 +506,6 @@ h3,
     }
 
 }
-
 
 /* Emojis Style ---------------------------------------------------> */
 

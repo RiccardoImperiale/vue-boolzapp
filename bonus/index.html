@@ -123,25 +123,32 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div ref="chatContainer" :class="isEmojis ? 'chat_emojis_open' : 'chat_emojis_close'" class="chat scrollbar-chat-col">
-                        <div :key="index" v-for="(message,index) in currentContact.messages"
-                            :class="message.status == 'sent' ? 'message sent' : 'message received'">
-                            <div class="message_top">
-                                <div class="text">
-                                    {{message.message}}
-                                </div>
-                                <div class="arrow_down">
-                                    <i @click="toggleOptions(index)" class="fa-solid fa-angle-down"></i>
-                                    <ul v-if="message.isOpen" class="message_options">
-                                        <li>Info messaggio</li>
-                                        <li @click="deleteMessage(index)">Cancella messaggio</li>
-                                    </ul>
+                    <div ref="chatContainer" :class="isEmojis ? 'chat_emojis_open' : 'chat_emojis_close'"
+                        class="chat scrollbar-chat-col">
+                       
+                        <template :key="index" v-for="(message,index) in currentContact.messages">
+
+                            <div :class="message.status == 'sent' ? 'message sent' : 'message received'">
+                                <div class="message_top">
+                                    <div class="text">
+                                        {{message.message}}
+                                    </div>
+                                    <div class="arrow_down">
+                                        <i @click="toggleOptions(index)" class="fa-solid fa-angle-down"></i>
+                                        <ul v-if="message.isOpen" class="message_options">
+                                            <li>Info messaggio</li>
+                                            <li @click="deleteMessage(index)">Cancella messaggio</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="message_bottom">
+                            <div :class="message.status == 'sent' ? 'sent' : 'received'" class="message_bottom">
                                 <span class="hours">{{message.time}}</span>
                             </div>
-                        </div>
+
+                        </template>
+
+
                     </div>
                     <div class="bottom_container">
                         <div :class="isEmojis ? 'emoji_open' : 'emoji_close'">
