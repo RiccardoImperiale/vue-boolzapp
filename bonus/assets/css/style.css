@@ -121,11 +121,11 @@ h3,
 }
 
 .scrollbar-col {
-    scrollbar-color: var(--blz-bg-msg) var(--blz-bg);
+    scrollbar-color: var(--blz-accent) var(--blz-bg);
 }
 
 .scrollbar-chat-col {
-    scrollbar-color: var(--blz-bg-msg) var(--blz-bg-chat-dark);
+    scrollbar-color: var(--blz-accent) var(--blz-bg-chat);
 }
 
 .contact_name {
@@ -142,7 +142,7 @@ h3,
 /* Left styles ---------------------------------------------------> */
 
 .left {
-    min-width: 380px;
+    width: 400px;
     border-right: 1px solid var(--blz-bg-chat);
 
     .top {
@@ -208,7 +208,7 @@ h3,
         }
 
         .stories {
-            padding-left: 1.5rem;
+            padding-inline: 1.5rem;
             padding-top: 1rem;
             display: flex;
             justify-content: flex-start;
@@ -220,6 +220,11 @@ h3,
                 font-size: .9rem;
                 color: var(--blz-text-300);
                 font-weight: 600;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 50px;
             }
 
             .story_add {
@@ -227,7 +232,6 @@ h3,
                 align-items: center;
                 justify-content: space-between;
                 flex-direction: column;
-                /* margin-right: -0.3rem; */
 
                 .circle {
                     position: relative;
@@ -237,12 +241,13 @@ h3,
                     width: 1rem;
                     height: 1rem;
                     background-color: var(--blz-bg-800);
+                    background-color: var(--blz-bg-chat-dark);
                     padding: 1.5rem;
                     border-radius: 50%;
 
                     .plus {
                         position: absolute;
-                        width: .8rem;
+                        width: .6rem;
                     }
 
                     & img {
@@ -258,6 +263,8 @@ h3,
                 flex-direction: column;
                 gap: 10px;
 
+
+
                 .story_contact {
                     position: relative;
                     display: flex;
@@ -266,11 +273,13 @@ h3,
 
                     & img {
                         width: 50px;
+                        z-index: 1;
                     }
 
                     .circle_contact {
                         position: absolute;
                         border: 2.5px solid var(--blz-accent);
+                        background-color: var(--blz-bg-chat-dark);
                         width: 58px;
                         height: 58px;
                         border-radius: 50%;
@@ -333,7 +342,7 @@ h3,
 
 .right {
     position: relative;
-    width: calc(100% - 380px);
+    width: calc(100% - 400px);
     background-color: var(--blz-bg-chat);
 
     .top {
@@ -467,6 +476,7 @@ h3,
 
         .message.received {
             background-color: var(--blz-bg-msg-r);
+
         }
     }
 
@@ -490,7 +500,7 @@ h3,
     /* background-color: var(--blz-bg-chat); */
     background-color: transparent;
     padding: 0 2rem 1.5rem 2rem;
-    gap: .5rem;
+    gap: .8rem;
 
     .container {
         height: 100%;
@@ -529,7 +539,7 @@ h3,
 
     .fa-paper-plane {
         background-color: var(--blz-accent);
-        height: 100%;
+        height: 98%;
         aspect-ratio: 1;
         border-radius: 50%;
         display: flex;

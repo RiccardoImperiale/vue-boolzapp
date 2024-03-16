@@ -47,42 +47,14 @@
                                 </div>
                                 <div class="text">Add</div>
                             </div>
-                            <div class="story">
+                            <!-- single status -->
+                            <div v-for="contact in contacts.slice(0, contacts.length - 1).reverse()" class="story">
                                 <div class="story_contact">
                                     <div class="circle_contact"></div>
-                                    <img src="./assets/img/avatar_1.jpg" alt="">
+                                    <img :src="contact.avatar" alt="">
                                 </div>
-                                <div class="text">Add</div>
+                                <div class="text">{{contact.name}}</div>
                             </div>
-                            <div class="story">
-                                <div class="story_contact">
-                                    <div class="circle_contact"></div>
-                                    <img src="./assets/img/avatar_1.jpg" alt="">
-                                </div>
-                                <div class="text">Add</div>
-                            </div>
-                            <div class="story">
-                                <div class="story_contact">
-                                    <div class="circle_contact"></div>
-                                    <img src="./assets/img/avatar_1.jpg" alt="">
-                                </div>
-                                <div class="text">Add</div>
-                            </div>
-                            <div class="story">
-                                <div class="story_contact">
-                                    <div class="circle_contact"></div>
-                                    <img src="./assets/img/avatar_1.jpg" alt="">
-                                </div>
-                                <div class="text">Add</div>
-                            </div>
-                            <div class="story">
-                                <div class="story_contact">
-                                    <div class="circle_contact"></div>
-                                    <img src="./assets/img/avatar_1.jpg" alt="">
-                                </div>
-                                <div class="text">Add</div>
-                            </div>
-
                         </div>
                     </div>
                     <div class="chats_header">
