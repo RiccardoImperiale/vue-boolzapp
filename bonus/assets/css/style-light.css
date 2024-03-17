@@ -1,18 +1,17 @@
 :root {
-    /* dark mode */
+    /* light mode */
     --blz-bg-main: #E8ECEF;
-    --blz-bg: #161616;
-    --blz-bg-chat: #080808;
-    --blz-bg-chat-dark: #000000;
-    --blz-bg-800: #262626;
-    --blz-bg-msg-r: #131313;
-    --blz-bg-msg: #081a01;
-    --blz-bg-msg: #1f0629;
+    --blz-bg: #ffffff;
+    --blz-bg-chat: #F7F8FA;
+    --blz-bg-chat-dark: #F1F4F6;
+    --blz-bg-800: #ffffff;
+    --blz-bg-msg-r: #e7e7e7;
+    --blz-bg-msg: #36CE00;
     --blz-accent: #36CE00;
-    --blz-text: #E0E0E0;
-    --blz-text-600: #6D6D6D;
+    --blz-text: #111111;
+    --blz-text-600: #9b9b9b;
     --blz-text-300: #B7B7B7;
-    --blz-lightest: #FFFFFF;
+    --blz-lightest: #dcdcdc;
 }
 
 * {
@@ -106,22 +105,14 @@ h3,
 
 .scrollbar-col {
     scrollbar-color: var(--blz-accent) var(--blz-bg);
-     scrollbar-width: thin;
-    scroll-behavior: smooth;
-
 }
 
 .scrollbar-chat-col {
     scrollbar-color: var(--blz-accent) var(--blz-bg-chat);
-    scrollbar-width: thin;
-    /* scrollbar-width: none; */
-    scroll-behavior: smooth;
 }
 
 .scrollbar-emoji {
     scrollbar-color: var(--blz-text-600) var(--blz-bg);
-    /* scrollbar-color: var(--blz-accent) var(--blz-bg); */
-    scrollbar-width: thin;
 }
 
 .contact_name {
@@ -305,7 +296,7 @@ h3,
     .chats_list {
         height: calc(100% - 291px);
         overflow-x: hidden;
-       
+        scrollbar-width: thin;
 
         .contact_chat {
             height: 80px;
@@ -385,8 +376,10 @@ h3,
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        scrollbar-width: thin;
         transition: height .5s;
-        background-image: url("../img/mine.jpg");
+        background-image: url("../img/mine\ 2.jpg");
+        scroll-behavior: smooth;
 
         .message_top::after,
         .message_received::after {
@@ -498,11 +491,12 @@ h3,
 
     .chat_emojis_close {
         height: calc(100% - 80px);
-        /* transition: height 1s; */
+        transition: height 1s;
     }
 
     .chat_emojis_open {
         height: calc(100% - 365px);
+        /* transition: height .75s; */
     }
 }
 
@@ -576,7 +570,7 @@ h3,
     width: 100%;
     border-radius: 1rem 1rem 0 0;
     overflow: hidden;
-    transition: .25s ease-in-out;
+    transition: .4s ease-in-out;
 
     .top_emojis {
         height: 20px;
@@ -612,6 +606,7 @@ h3,
     .emojis {
         padding-right: 1rem;
         overflow-x: hidden;
+        scrollbar-width: thin;
         height: 100px;
         width: 100%;
         display: flex;

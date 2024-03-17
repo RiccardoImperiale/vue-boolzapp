@@ -95,26 +95,27 @@ createApp({
         },
         toggleEmojis() {
             this.isEmojis = !this.isEmojis;
-            this.$nextTick(() => {
-                setTimeout(() => {
-                    this.scrollToBottom();
-                }, 350);
-            });
+            setTimeout(() => this.$nextTick(this.scrollToBottom), 340);
         },
         addEmoji(index) {
             this.newMessage += this.filteredEmojis[index].emoji; // add emoji to message
         },
+        scrollToTop() {
+            const chatsContainer = this.$refs.chatsContainer; 
+            chatsContainer.scrollTop = 0;
+        },
         scrollToBottom() {
-            const chatContainer = this.$refs.chatContainer; // $refs reference a specific elements in the dom
+            const chatContainer = this.$refs.chatContainer; 
             chatContainer.scrollTop = chatContainer.scrollHeight;
         },
         moveChatToTop(name) {
-            // Get the index of the current chat by using the name
+            // get the index of the current chat by using the name
             const indexCurrentChat = this.filteredContacts.findIndex(contact => contact.name === name);
-            // Remove the chat from its current position
+            // remove the chat from its current position
             const currentChat = this.filteredContacts.splice(indexCurrentChat, 1)[0];
-            // Move it to the top of the list
+            // move it to the top of the list
             this.filteredContacts.unshift(currentChat);
+            this.$nextTick(this.scrollToTop());
         }
     },
     created() {
