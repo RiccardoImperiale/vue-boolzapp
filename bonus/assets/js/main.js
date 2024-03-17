@@ -40,7 +40,7 @@ createApp({
             return { date: this.currentTime.toFormat('dd/MM/yyyy'), time: this.currentTime.toFormat('HH:mm') };
         },
         send(name) {
-            if (this.newMessage !== '') {
+            if (this.newMessage !== '' && this.newMessage.trim() !== "") {
                 // find current chat by name in contacts array
                 const currentChatByName = contacts.find(contact => contact.name === name);
                 const dateAndTime = this.getDateAndTime();
