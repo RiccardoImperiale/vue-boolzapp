@@ -13,6 +13,7 @@
     --blz-text-600: #6D6D6D;
     --blz-text-300: #B7B7B7;
     --blz-lightest: #FFFFFF;
+    --blz-online: #85c8ff;
 }
 
 * {
@@ -350,6 +351,11 @@ h3,
         justify-content: space-between;
         height: 80px;
         background-color: var(--blz-bg);
+
+        .online {
+            color: var(--blz-online);
+        }
+
 
         .buttons {
             color: var(--blz-bg-main);

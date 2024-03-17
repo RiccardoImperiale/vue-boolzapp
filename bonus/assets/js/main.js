@@ -17,7 +17,8 @@ createApp({
             searchEmoji: '',
             emojis: emojisList,
             filteredEmojis: emojisList,
-            isTyping: false
+            isTyping: false,
+            isOnline: false,
         }
     },
     methods: {
@@ -73,6 +74,8 @@ createApp({
                 this.getLastSeenTime();
                 this.isTyping = false;
             }, 1000);
+
+            this.onlineStatus();
         },
         searchFilter() {
             this.filteredContacts = this.contacts.filter(contact => {
@@ -119,6 +122,10 @@ createApp({
             // move it to the top of the list
             this.filteredContacts.unshift(currentChat);
             this.$nextTick(this.scrollToTop());
+        },
+        onlineStatus() {
+            this.isOnline = true;
+            setTimeout(() => this.isOnline = false, 3000);
         }
     },
     created() {
