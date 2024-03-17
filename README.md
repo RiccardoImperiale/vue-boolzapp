@@ -1,3 +1,7 @@
+# Boolzapp - a (not very) innovative messaging platform
+
+![alt text](./design/192.168.1.115_5500_index.html.png)
+
 ## Milestone 1
 - Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e
 dall’interlocutore (bianco) assegnando due classi CSS diverse
@@ -24,3 +28,14 @@ contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> 
 - Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
 permette di cancellare il messaggio selezionato
 - Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+
+
+# Bonus
+- Creazione nuovo design
+- Aggiunta delle emoji tramite menu a comparsa
+- Aggiunta dell'orario dell'ultimo accesso prendedolo dal orario dell'ultimo messaggio ricevuto
+- La chat scorre verso il basso all'aggiunta di un nuovo messaggio rendendo sempre visibili i messaggi più recenti 
+- La chat più recente si sposta in cima alla lista dei contatti
+
+![alt text](./bonus/design/screen-close.png)
+![alt text](./bonus/design/screen-open.png)
