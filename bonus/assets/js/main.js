@@ -17,6 +17,7 @@ createApp({
             searchEmoji: '',
             emojis: emojisList,
             filteredEmojis: emojisList,
+            isTyping: false
         }
     },
     methods: {
@@ -62,6 +63,7 @@ createApp({
         },
         automaticAnswer(currentChatByName) {
             let randomAnswer = this.genRandResponse();
+            this.isTyping = true;
             setTimeout(() => {
                 const dateAndTime = this.getDateAndTime();
                 let newMsg = { date: dateAndTime.date, time: dateAndTime.time, message: randomAnswer, status: 'received' };
@@ -69,6 +71,7 @@ createApp({
                 this.currentContact.messages.push(newMsg);
                 this.$nextTick(this.scrollToBottom);
                 this.getLastSeenTime();
+                this.isTyping = false;
             }, 1000);
         },
         searchFilter() {
@@ -101,11 +104,11 @@ createApp({
             this.newMessage += this.filteredEmojis[index].emoji; // add emoji to message
         },
         scrollToTop() {
-            const chatsContainer = this.$refs.chatsContainer; 
+            const chatsContainer = this.$refs.chatsContainer;
             chatsContainer.scrollTop = 0;
         },
         scrollToBottom() {
-            const chatContainer = this.$refs.chatContainer; 
+            const chatContainer = this.$refs.chatContainer;
             chatContainer.scrollTop = chatContainer.scrollHeight;
         },
         moveChatToTop(name) {

@@ -86,7 +86,8 @@
                             <img v-show="currentContact.avatar" :src="currentContact.avatar" alt="avatar">
                             <div class="contact_name">
                                 <h3>{{currentContact.name}}</h3>
-                                <p v-show="currentContact.avatar">Last seen at {{lastSeen}}</p>
+                                <p v-if="isTyping" v-show="currentContact.avatar">{{currentContact.name}} is typing...</p>
+                                <p v-else v-show="currentContact.avatar">Last seen at {{lastSeen}}</p>
                             </div>
                         </div>
                         <div class="buttons">
@@ -141,10 +142,12 @@
                                     placeholder="Type a message">
                                 <i @click="toggleEmojis" class="fa-regular fa-face-smile"></i>
                             </div>
-                            <i @click="send(currentContact.name)" class="fa-regular fa-paper-plane"></i>
-                            <!-- <div class="mic_icon">
-                                <img src="./assets/img/send.png" alt="paperplane icon">
-                            </div> -->
+                            <!-- circle btns -->
+                            <i v-if="newMessage" key="plane" @click="send(currentContact.name)"
+                                class="fa-regular fa-paper-plane"></i>
+                            <div v-else key="mic" id="mic_icon">
+                                <img src="./assets/img/microphone.png" alt="microphone icon">
+                            </div>
                         </div>
                     </div>
                 </div>

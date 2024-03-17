@@ -106,7 +106,7 @@ h3,
 
 .scrollbar-col {
     scrollbar-color: var(--blz-accent) var(--blz-bg);
-     scrollbar-width: thin;
+    scrollbar-width: thin;
     scroll-behavior: smooth;
 
 }
@@ -264,8 +264,6 @@ h3,
                 flex-direction: column;
                 gap: 10px;
 
-
-
                 .story_contact {
                     position: relative;
                     display: flex;
@@ -305,7 +303,7 @@ h3,
     .chats_list {
         height: calc(100% - 291px);
         overflow-x: hidden;
-       
+
 
         .contact_chat {
             height: 80px;
@@ -566,7 +564,27 @@ h3,
         padding-right: .2rem;
         cursor: pointer;
     }
+
+    #mic_icon {
+        background-color: var(--blz-accent);
+        height: 98%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        & img {
+            filter: invert();
+            width: 30px;
+        }
+    }
+
+
+
 }
+
 
 /* Emojis Style ---------------------------------------------------> */
 
