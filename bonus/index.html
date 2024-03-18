@@ -78,29 +78,38 @@
                         </div>
                     </div>
                 </div>
-                <!-- chat -->
                 <div class="right">
+                    <!-- top chat -->
                     <div class="top">
                         <!-- single chat -->
                         <div class="contact">
                             <img v-show="currentContact.avatar" :src="currentContact.avatar" alt="avatar">
                             <div class="contact_name">
                                 <h3>{{currentContact.name}}</h3>
-                                <p v-if="isTyping" v-show="currentContact.avatar">{{currentContact.name}} is typing...</p>
+                                <p v-if="isTyping" v-show="currentContact.avatar">{{currentContact.name}} is typing...
+                                </p>
                                 <p v-else-if="isOnline" v-show="currentContact.avatar" class="online">Online</p>
                                 <p v-else v-show="currentContact.avatar">Last seen at {{lastSeen}}</p>
                             </div>
                         </div>
-                        <div class="buttons">
+                        <div v-show="isChatSelected" class="buttons">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
+                    <!-- chat -->
                     <div ref="chatContainer"
                         :class="isEmojis ? 'chat_emojis_open p-chat_emojis_open' : 'chat_emojis_close p-chat_emojis_close'"
                         class="chat scrollbar-chat-col">
-                        <template :key="index" v-for="(message,index) in currentContact.messages">
+                        <!-- select a chat -->
+                        <div v-if="!isChatSelected" class="chat_default">
+                            <div>
+                                <h3>Select a chat<br>to start a conversation...</h3>
+                                <i class="fa-regular fa-comments"></i>
+                            </div>
+                        </div>
+                        <template v-else :key="index" v-for="(message, index) in currentContact.messages">
                             <div :class="message.status == 'sent' ? 'message sent' : 'message received'">
                                 <div class="message_top">
                                     <div class="text">

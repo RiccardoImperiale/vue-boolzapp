@@ -13,7 +13,8 @@
     --blz-text-600: #6D6D6D;
     --blz-text-300: #B7B7B7;
     --blz-lightest: #FFFFFF;
-    --blz-online: #85c8ff;
+    /* --blz-online: #85c8ff; */
+    --blz-online: #c19afc;
 }
 
 * {
@@ -356,7 +357,6 @@ h3,
             color: var(--blz-online);
         }
 
-
         .buttons {
             color: var(--blz-bg-main);
             font-size: 1.2rem;
@@ -382,7 +382,34 @@ h3,
         }
     }
 
+    .chat_default {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background-image: url("../img/mine.jpg");
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >div {
+            text-align: center;
+            
+            & h3 {
+                line-height: 1.5rem;
+                color: var(--blz-text-300);
+                font-size: 1rem;
+            }
+
+            & i {
+                color: var(--blz-bg-800);
+                margin-top: 1rem;
+                font-size: 3rem;
+            }
+        }
+    }
+
     .chat {
+        position: relative;
         background-color: var(--blz-bg-chat);
         height: calc(100% - 80px);
         overflow-y: auto;

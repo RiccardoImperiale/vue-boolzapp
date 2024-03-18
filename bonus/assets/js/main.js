@@ -19,10 +19,12 @@ createApp({
             filteredEmojis: emojisList,
             isTyping: false,
             isOnline: false,
+            isChatSelected: false
         }
     },
     methods: {
         openChat(index) {
+            this.isChatSelected = true
             this.currentContact = {
                 name: this.filteredContacts[index].name,
                 avatar: this.filteredContacts[index].avatar,
@@ -129,6 +131,6 @@ createApp({
         }
     },
     created() {
-        this.openChat(0);
+        // this.openChat(0);
     }
 }).mount('#app')
