@@ -672,7 +672,9 @@ h3,
 
         & span {
             cursor: pointer;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
+            /* laptop ??
+            font-size: 1.4rem; */
         }
     }
 }
