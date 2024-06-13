@@ -37,6 +37,6 @@ permette di cancellare il messaggio selezionato
 - La chat scorre verso il basso all'aggiunta di un nuovo messaggio rendendo sempre visibili i messaggi più recenti 
 - La chat più recente si sposta in cima alla lista dei contatti
 
-![alt text](./bonus/design/screen-close-phone.png)
-<!-- ![alt text](./bonus/design/screen-close.png) -->
-![alt text](./bonus/design/screen-open.png)
+![alt text](./design/screen-close-phone.png)
+<!-- ![alt text](./design/screen-close.png) -->
+![alt text](./design/screen-open.png)
