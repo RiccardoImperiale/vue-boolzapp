@@ -1,0 +1,230 @@
+:root {
+    --blz-bg: #ffffff;
+    --blz-bg-chat: #F7F8FA;
+    --blz-bg-chat-dark: #F1F4F6;
+    --blz-bg-800: #ffffff;
+    --blz-bg-msg-r: #e7e7e7;
+    --blz-bg-msg: #36CE00;
+    --blz-accent: #36CE00;
+    --blz-text-300: #B7B7B7;
+    --blz-lightest: #dcdcdc;
+}
+
+#app {
+    background-color: #E8ECEF;
+}
+
+h2 {
+    color: #9b9b9b;
+}
+
+h3,
+.text {
+    color: #E0E0E0;
+}
+
+/* App styles ---------------------------------------------------> */
+
+.app {
+    background-color: #ffffff;
+}
+
+.scrollbar-col {
+    scrollbar-color: #36CE00 #ffffff;
+}
+
+.scrollbar-chat-col {
+    scrollbar-color: #36CE00 #F7F8FA;
+}
+
+.scrollbar-emoji {
+    scrollbar-color: #9b9b9b #ffffff;
+}
+
+.contact_name {
+    & p {
+        color: #9b9b9b;
+    }
+}
+
+/* Left styles ---------------------------------------------------> */
+
+.left {
+    border-right: 1px solid #F7F8FA;
+
+    .top {
+        .buttons {
+            color: #E8ECEF;
+        }
+    }
+
+    .search {
+
+        & input {
+            color: #E0E0E0;
+            background-color: #F1F4F6;
+            color: #9b9b9b;
+            border: 2.25px solid #ffffff;
+
+            &::placeholder {
+                color: #9b9b9b;
+            }
+
+            &:focus {
+                border: 2.25px solid #ffffff;
+            }
+        }
+    }
+
+    .status {
+        .stories {
+            .text {
+                color: #B7B7B7;
+            }
+
+            .story_add {
+                .circle {
+                    background-color: #ffffff;
+                    background-color: #F1F4F6;
+                }
+            }
+
+            .story {
+
+                .story_contact {
+
+                    .circle_contact {
+                        border: 2.5px solid #36CE00;
+                        background-color: #F1F4F6;
+                    }
+                }
+            }
+        }
+    }
+
+    .chats_header {
+
+        #private {
+            color: #B7B7B7;
+        }
+    }
+
+    .chats_list {
+        .contact_chat {
+            color: #9b9b9b;
+
+            &:hover {
+                background-color: #F7F8FA;
+            }
+        }
+
+        .selected_chat {
+            background-color: #F1F4F6;
+        }
+    }
+}
+
+/* Right styles ---------------------------------------------------> */
+
+.right {
+    background-color: #F7F8FA;
+
+    .top {
+        background-color: #ffffff;
+
+        .buttons {
+            color: #E8ECEF;
+
+            & i:not(.fa-ellipsis-vertical) {
+                background-color: #F1F4F6;
+            }
+        }
+    }
+
+    .chat {
+        background-color: #F7F8FA;
+
+        .message {
+            .message_top {
+
+                .text {
+                    color: #ffffff;
+                }
+
+                .arrow_down {
+                    color: #ffffff;
+
+                    & .message_options {
+                        background-color: #ffffff;
+                        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+
+                        & li:hover {
+                            background-color: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .hours {
+            color: #9b9b9b;
+        }
+
+        .message.sent {
+            background-color: #36CE00;
+        }
+
+        .message.received {
+            background-color: #e7e7e7;
+        }
+    }
+}
+
+.bottom {
+    .container {
+        & input {
+            background-color: #ffffff;
+            color: #9b9b9b;
+
+            &:focus {
+                border: none;
+            }
+        }
+
+        .fa-face-smile {
+            color: #9b9b9b;
+
+            &:hover {
+                color: #36CE00;
+            }
+        }
+    }
+
+    .fa-paper-plane {
+        background-color: #36CE00;
+        color: #ffffff;
+    }
+}
+
+/* Emojis Style ---------------------------------------------------> */
+
+.emoji_open,
+.emoji_close {
+
+    .search_emoji {
+
+        & input {
+            background-color: #F7F8FA;
+            color: #9b9b9b;
+            border: 2.5px solid #F7F8FA;
+
+            &:focus {
+                border: 2.5px solid #ffffff;
+            }
+        }
+    }
+}
+
+.emoji_open {
+    background-color: #ffffff;
+}

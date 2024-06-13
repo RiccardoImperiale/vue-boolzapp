@@ -17,10 +17,14 @@ createApp({
             searchEmoji: '',
             emojis: emojisList,
             filteredEmojis: emojisList,
+            isTyping: false,
+            isOnline: false,
+            isChatSelected: false
         }
     },
     methods: {
         openChat(index) {
+            this.isChatSelected = true
             this.currentContact = {
                 name: this.filteredContacts[index].name,
                 avatar: this.filteredContacts[index].avatar,
@@ -29,6 +33,7 @@ createApp({
                 })
             }; // isOpen keeps track of the msg popup
             this.getLastSeenTime();
+            this.$nextTick(this.scrollToBottom);
         },
         getLastSeenTime() {
             const receivedMessages = this.currentContact.messages.filter(message => message.status === 'received');
@@ -39,7 +44,7 @@ createApp({
             return { date: this.currentTime.toFormat('dd/MM/yyyy'), time: this.currentTime.toFormat('HH:mm') };
         },
         send(name) {
-            if (this.newMessage !== '') {
+            if (this.newMessage !== '' && this.newMessage.trim() !== "") {
                 // find current chat by name in contacts array
                 const currentChatByName = contacts.find(contact => contact.name === name);
                 const dateAndTime = this.getDateAndTime();
@@ -52,6 +57,8 @@ createApp({
                 this.automaticAnswer(currentChatByName); // trigger automatic answer
                 this.newMessage = ''; // clean input
             }
+
+            this.moveChatToTop(name);
         },
         genRandResponse() {
             const randNum = Math.floor(Math.random() * this.randomResponses.length);
@@ -59,6 +66,7 @@ createApp({
         },
         automaticAnswer(currentChatByName) {
             let randomAnswer = this.genRandResponse();
+            this.isTyping = true;
             setTimeout(() => {
                 const dateAndTime = this.getDateAndTime();
                 let newMsg = { date: dateAndTime.date, time: dateAndTime.time, message: randomAnswer, status: 'received' };
@@ -66,7 +74,10 @@ createApp({
                 this.currentContact.messages.push(newMsg);
                 this.$nextTick(this.scrollToBottom);
                 this.getLastSeenTime();
+                this.isTyping = false;
             }, 1000);
+
+            this.onlineStatus();
         },
         searchFilter() {
             this.filteredContacts = this.contacts.filter(contact => {
@@ -92,16 +103,34 @@ createApp({
         },
         toggleEmojis() {
             this.isEmojis = !this.isEmojis;
+            setTimeout(() => this.$nextTick(this.scrollToBottom), 340);
         },
         addEmoji(index) {
             this.newMessage += this.filteredEmojis[index].emoji; // add emoji to message
         },
+        scrollToTop() {
+            const chatsContainer = this.$refs.chatsContainer;
+            chatsContainer.scrollTop = 0;
+        },
         scrollToBottom() {
-            const chatContainer = this.$refs.chatContainer; // $refs reference a specific elements in the dom
+            const chatContainer = this.$refs.chatContainer;
             chatContainer.scrollTop = chatContainer.scrollHeight;
+        },
+        moveChatToTop(name) {
+            // get the index of the current chat by using the name
+            const indexCurrentChat = this.filteredContacts.findIndex(contact => contact.name === name);
+            // remove the chat from its current position
+            const currentChat = this.filteredContacts.splice(indexCurrentChat, 1)[0];
+            // move it to the top of the list
+            this.filteredContacts.unshift(currentChat);
+            this.$nextTick(this.scrollToTop());
+        },
+        onlineStatus() {
+            this.isOnline = true;
+            setTimeout(() => this.isOnline = false, 3000);
         }
     },
     created() {
-        this.openChat(0);
+        // this.openChat(0);
     }
 }).mount('#app')
