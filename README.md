@@ -1,4 +1,5 @@
 # Boolzapp - a (not very) innovative messaging platform
+[Live Version](https://boolzapp2.netlify.app/) 👀
 
 ## Milestone 1
 - Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e
