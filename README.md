@@ -1,7 +1,5 @@
 # Boolzapp - a (not very) innovative messaging platform
 
-![alt text](./design/192.168.1.115_5500_index.html.png)
-
 ## Milestone 1
 - Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e
 dall’interlocutore (bianco) assegnando due classi CSS diverse
@@ -38,5 +36,4 @@ permette di cancellare il messaggio selezionato
 - La chat più recente si sposta in cima alla lista dei contatti
 
 ![alt text](./design/screen-close-phone.png)
-<!-- ![alt text](./design/screen-close.png) -->
 ![alt text](./design/screen-open.png)
